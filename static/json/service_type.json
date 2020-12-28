@@ -1,0 +1,2503 @@
+[
+  {
+    "_id": "SGN-BIKE",
+    "enable": true,
+    "order": 1,
+    "city_id": "SGN",
+    "name": "Siêu Tốc",
+    "rebroadcast_interval": 1200,
+    "rebroadcast_limit": 1,
+    "broadcast_distance": 500000,
+    "complete_interval": 1,
+    "name_vi_vn": "Siêu Tốc",
+    "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sp-bike.png",
+    "map_icon_url": "https://ahamove.com/wp-content/uploads/2020/01/icon-tet.png",
+    "distance_fee": "(23000 if x <= 4 else 23000 + (x - 4) * 5000)",
+    "commission_type": "PERCENTAGE",
+    "commission_value": 0.236,
+    "max_distance": 100000,
+    "stop_fee": 5000,
+    "name_en_us": "Siêu Tốc",
+    "require_to": true,
+    "name_vi_VN": "Siêu Tốc",
+    "auto_assign": false,
+    "auto_assign_distance": 5000,
+    "require_request": false,
+    "advance_broadcast_distance": 500000,
+    "timeout": 1200,
+    "cod": 10000000,
+    "first_order_cod": 1,
+    "max_stop_points": 5,
+    "max_concurrent_orders": 1,
+    "pending_period": 100,
+    "fee_description_en_us": "Minimum fee (within 6km): đ30.000\nPer km: đ5.000",
+    "description_en_us": "Deliver within an hour",
+    "description_vi_vn": "Giao hàng trong 1h",
+    "fee_description_vi_vn": "Phí tối thiểu (dưới 6km): đ30.000\nCác km tiếp theo: đ5.000",
+    "tooltips": {
+      "ASSIGNING": {
+        "message": [
+          "Đơn hàng của bạn đang được AhaMove xử lí. Sẽ có tài xế chấp nhận trong 5-10' tiếp theo!"
+        ],
+        "message_vi_vn": [
+          "Đơn hàng của bạn đang được AhaMove xử lí. Sẽ có tài xế chấp nhận trong 5-10' tiếp theo!"
+        ]
+      },
+      "ACCEPTED": {
+        "message": [
+          "Driver will arrive to your location within 15 minutes",
+          "Delivery time can take up to 2 hours"
+        ],
+        "message_vi_vn": [
+          "Tài xế sẽ đến chỗ bạn trong vòng 15 phút",
+          "Thời gian giao hàng có thể lên đến 2 tiếng"
+        ]
+      }
+    },
+    "parent_id": "SGN-GROUP-BIKE_EXPRESS",
+    "supplier_description": "https://ahamove.com/quy-trinh-giao-don-sieu-toc-sieu-re/",
+    "notify_package_return": true,
+    "cross_service": {
+      "enable": true,
+      "services": [],
+      "non-category": [
+        "Corporation - Cake",
+        "Corporation - Dry food"
+      ]
+    },
+    "uniform_verify": true,
+    "recommend_order": false,
+    "event_callback": true,
+    "uniform_verify_message_vi_vn": "Tài xế có mang đồng phục (áo, nón) hay không?",
+    "uniform_verify_message_en_us": "Is your driver wearing proper uniform (including AhaMove's jacket, helmet)?",
+    "recommendation_config": {
+      "supplier_timeout": 20,
+      "recommend_timeout": 20,
+      "poolable": false,
+      "recommend_radius": 500,
+      "sleep_interval": 60,
+      "dispatch_mode": "RECOMMEND",
+      "pool_mode": "NO_POOL",
+      "pool_saving_threshold": 0.2
+    },
+    "set_idle_status_when_creating_order": false,
+    "need_confirm_before_pickup": false,
+    "service_description_vi_vn": {
+      "fee_desc": {
+        "0-4km": 23000,
+        "Mỗi km tiếp theo": 5000
+      },
+      "sla": {
+        "COD tối đa": 500000,
+        "Trọng lượng tối đa": "5kg",
+        "Kích thước tối đa": "25(D) x 32(R) x 12(C) cm"
+      },
+      "more_details": [
+        "Giá đã bao gồm VAT",
+        "Nếu giao đồ ăn, xin vui lòng cân nhắc thời gian giao hàng"
+      ]
+    },
+    "note": "1. Vui lòng gọi điện cho người nhận trước khi đến lấy hàng.\n2. Đơn hàng không cần ứng tiền COD, vẫn thu tiền COD từ người nhận và nộp lại qua MoMo/Tk Ahamove.\n3. Tài xế huỷ đơn thì phải gọi lên tổng đài. Tuyệt đối không lấy hàng đi nếu chưa gọi được cho người nhận.\n4. Olala.\n5. Olele.",
+    "max_cod_per_stop_point": 5000000,
+    "cod_commission": {
+      "value": 0.008,
+      "none_commission_limit": 2000000
+    },
+    "max_cod": 20000000,
+    "idle_timeout": 2,
+    "committed_time_formula": "if ( x <= 6 ) {60} else {((x -6) * 5 + 60)}",
+    "delivery_type": "INSTANT",
+    "cross_city": {
+      "enable": true,
+      "cities": [
+        "SGN"
+      ]
+    },
+    "map_icon_3d": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/aha-chat-292008.appspot.com/o/3dicon%2Fsgn-bike-v1.png?alt=media&token=6183f369-1ffb-4286-a947-e95ef996e00a",
+      "sprite_size": 2000,
+      "sprite_count": 64
+    },
+    "payment_method": [
+      {
+        "description": "We only suppor Cash by now",
+        "description_vi_vn": "Chỉ cho phép người nhận trả tiền mặt",
+        "payment": "cash_by_recipient"
+      }
+    ],
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "SGN-BIKE-HI-COD",
+        "name": "Nạp tiền ĐT (COMMISSION PERCENTAGE)",
+        "name_vi_vn": "Nạp tiền ĐT (COMMISSION PERCENTAGE)",
+        "name_en_us": "Nạp tiền ĐT (COMMISSION PERCENTAGE)",
+        "enable": true,
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sr_cod_insurance.png",
+        "img_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sr_cod_insurance.png",
+        "order": 1,
+        "description_vi_vn": "Tài xế sẽ ứng trước COD cho khách hàng.",
+        "description_en_us": "Tài xế sẽ ứng trước COD cho khách hàng.",
+        "type": "COMMISSION_PERCENTAGE",
+        "price": 0.01,
+        "description": "",
+        "service_id": "SGN-BIKE"
+      },
+      {
+        "_id": "SGN-BIKE-ROUND-TRIP",
+        "name": "Quay lại điểm lấy hàng (COMMISSION DISTANCE PERCENTAGE)",
+        "name_vi_vn": "Quay lại điểm lấy hàng (COMMISSION DISTANCE PERCENTAGE)",
+        "name_en_us": "Quay lại điểm lấy hàng (COMMISSION DISTANCE PERCENTAGE)",
+        "enable": true,
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_round_trip.png",
+        "img_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_round_trip.png",
+        "order": 1,
+        "description_vi_vn": "- Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 80% phí khoảng cách.\n\n- Lưu ý: Phí khoảng cách là số phí dựa theo số km vận chuyển, ko bao gồm phí điểm dừng và các loại phí khác.",
+        "description_en_us": "Driver will return to pick up location for 80% of distance fee. Note: Distance fee is calculated solely by the travel distance, it does not include stop fee and others fee",
+        "type": "COMMISSION_DISTANCE_PERCENTAGE",
+        "price": 0.8,
+        "description": "",
+        "supplier_description": "Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 80% phí khoảng cách. Lưu ý: Phí khoảng cách là số phí dựa theo số km vận chuyển, ko bao gồm phí điểm dừng và các loại phí khác.",
+        "service_id": "SGN-BIKE",
+        "no_commission": false,
+        "no_promotion": true
+      },
+      {
+        "_id": "SGN-BIKE-SMS",
+        "name": "Gửi tin nhắn cho người nhận (BOOLEAN)",
+        "enable": true,
+        "support_remarks": true,
+        "name_vi_vn": "Gửi tin nhắn cho người nhận (BOOLEAN)",
+        "name_en_us": "Gửi tin nhắn cho người nhận (BOOLEAN)",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_d2d.png",
+        "order": 1,
+        "price": 1000,
+        "no_supplier_payout": true,
+        "type": "BOOLEAN",
+        "service_id": "SGN-BIKE",
+        "send_sms": true,
+        "img_url": "https://ahamove.com/gioi-thieu-tinh-nang-gui-sms-theo-doi-hanh-trinh-cho-khach-hang/",
+        "sms_template": "<p>Shipper AhaMove se giao don hang tu <span style=\"color: #FF8200;\"><strong>{sender_name}</strong></span> toi quy khach trong vong <span style=\"color: #FF8200;\"><strong>{min_eta} - {max_eta}</strong></span> phut nua. Theo doi don hang tai: <span style=\"color: #FF8200;\"><strong>{shared_link}</strong></span></p>",
+        "sms_demo": "<p>Shipper AhaMove se giao don hang tu <span style=\"color: #FF8200;\"><strong>Pizza 4P's</strong></span>&nbsp;toi quy khach trong vong <span style=\"color: #FF8200;\"><strong>18 - 25&nbsp;</strong></span>phut nua. Theo doi don hang tai:&nbsp;<span style=\"color: #FF8200;\"><strong>https://track.ahamove.com/203TG2NW</strong></span></p>"
+      },
+      {
+        "_id": "SGN-BIKE-TRANSFER-COD",
+        "name": "Nộp tiền thu hộ",
+        "enable": true,
+        "transfer_cod": true,
+        "support_remarks": true,
+        "name_vi_vn": "Nộp tiền thu hộ",
+        "name_en_us": "Nộp tiền thu hộ",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_d2d.png",
+        "order": 1,
+        "price": 0,
+        "no_commission": true,
+        "type": "BOOLEAN",
+        "service_id": "SGN-BIKE",
+        "img_url": "http://file.hstatic.net/1000010797/file/hand-to-hand.png"
+      },
+      {
+        "_id": "SGN-BIKE-BULKY",
+        "name": "Giao hàng cồng kềnh",
+        "enable": true,
+        "support_remarks": true,
+        "name_vi_vn": "Giao hàng công kềnh",
+        "name_en_us": "Bulky packages",
+        "icon_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Special+Request+Icon/Bulky_packages.jpg",
+        "order": 1,
+        "tier_list": [
+          {
+            "code": "TIER_1",
+            "name_vi_vn": "Tiêu chuẩn",
+            "name_en_us": "Standard",
+            "selectable": false,
+            "price": 0,
+            "price_description_vi_vn": "Miễn phí",
+            "price_description_en_us": "Free",
+            "description_vi_vn": "50x40x50:30kg",
+            "description_en_us": "50x40x50:30kg",
+            "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Bulky+Packages/Standard.png"
+          },
+          {
+            "code": "TIER_2",
+            "name_vi_vn": "Mức 1",
+            "name_en_us": "Package 1",
+            "price": 10000,
+            "selectable": true,
+            "description_vi_vn": "60x50x60:40kg",
+            "description_en_us": "60x50x60:40kg",
+            "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Bulky+Packages/Tier+1.png"
+          },
+          {
+            "code": "TIER_3",
+            "name_vi_vn": "Mức 2",
+            "name_en_us": "Package 2",
+            "selectable": true,
+            "price": 20000,
+            "description_vi_vn": "70x60x70:60kg",
+            "description_en_us": "70x60x70:60kg",
+            "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Bulky+Packages/Tier+2.png"
+          },
+          {
+            "code": "TIER_4",
+            "name_vi_vn": "Mức 3",
+            "name_en_us": "Package 3",
+            "selectable": true,
+            "price": 40000,
+            "description_vi_vn": "90x70x90:80kg",
+            "description_en_us": "90x70x90:80kg",
+            "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Bulky+Packages/Tier+3.png"
+          },
+          {
+            "code": "TIER_MAX",
+            "name_vi_vn": "Quá tải trọng",
+            "name_en_us": "Over",
+            "selectable": false,
+            "price": -1,
+            "price_description_vi_vn": "Quá tải trọng",
+            "price_description_en_us": "Overload",
+            "description_vi_vn": "90x60x90cm (100kg)",
+            "description_en_us": "90x60x90cm (100kg)",
+            "warning_message": "Hàng hoá có kích thước lớn vượt quá quy định, không cho phép vận chuyển bằng xe máy",
+            "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Bulky+Packages/Tier+max.png"
+          }
+        ],
+        "no_commission": false,
+        "type": "TIER",
+        "service_id": "SGN-BIKE",
+        "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Special+Request+Icon/Bulky_packages.jpg",
+        "description_vi_vn": "Giao hàng cồng kềnh",
+        "supplier_description_url": "https://ahamove.com/giao-hang-cong-kenh"
+      },
+      {
+        "_id": "SGN-POD-TRANSFER-COD",
+        "name": "Payment on delivery",
+        "enable": true,
+        "support_remarks": true,
+        "name_vi_vn": "Payment on delivery",
+        "name_en_us": "Payment on delivery",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_d2d.png",
+        "order": 1,
+        "price": 0,
+        "no_commission": true,
+        "type": "BOOLEAN",
+        "transfer_cod": true,
+        "service_id": "SGN-BIKE",
+        "img_url": "http://file.hstatic.net/1000010797/file/hand-to-hand.png"
+      },
+      {
+        "_id": "SGN-BIKE-THERMALBAG",
+        "name": "Túi giữ nhiệt",
+        "enable": true,
+        "name_vi_vn": "Túi giữ nhiệt",
+        "name_en_us": "Thermal Bag",
+        "icon_url": "https://trello-attachments.s3.amazonaws.com/5eabe9291dc6933e9e74eb2f/5f8531508904fa20c3cc89ad/1545287f04ffcc958416ab13b8bc3de5/2710.png",
+        "order": 1,
+        "price": 5000,
+        "no_commission": false,
+        "description_vi_vn": "Túi giữ nhiệt",
+        "description_en_us": "Thermal Bag",
+        "type": "BOOLEAN",
+        "description": "",
+        "service_id": "SGN-BIKE",
+        "is_auto_assign_request": true
+      },
+      {
+        "_id": "SGN-BIKE-D2D",
+        "name": "Giao hàng tận tay (BOOLEAN)",
+        "enable": true,
+        "name_vi_vn": "Giao hàng tận tay (BOOLEAN)",
+        "name_en_us": "Giao hàng tận tay (BOOLEAN)",
+        "icon_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/core_services/req_d2d.png",
+        "order": 3,
+        "price": 13000,
+        "no_commission": true,
+        "type": "BOOLEAN",
+        "service_id": "SGN-BIKE",
+        "delivery_option": true,
+        "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/core_services/req_d2d.png",
+        "description_vi_vn": "Khách hàng có thể chọn được từng điểm giao để yêu cầu tài xế giao hàng tới tận tay người nhận.",
+        "description_en_us": "Khách hàng có thể chọn được từng điểm giao để yêu cầu tài xế giao hàng tới tận tay người nhận.",
+        "description_url": "https://ahamove.com/gioi-thieu-tinh-nang-giao-hang-tan-tay/",
+        "supplier_description_url": "https://ahamove.com/cap-nhat-moi-tinh-nang-giao-hang-tan-tay/"
+      },
+      {
+        "_id": "SGN-BIKE-TIP",
+        "name": "Hỗ trợ tài xế (PER_UNIT)",
+        "enable": true,
+        "name_vi_vn": "Hỗ trợ tài xế (PER_UNIT)",
+        "name_en_us": "Hỗ trợ tài xế (PER_UNIT)",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sr_tipping.png",
+        "order": 4,
+        "no_commission": true,
+        "type": "PER_UNIT",
+        "price": 5000,
+        "description": "",
+        "service_id": "SGN-BIKE",
+        "description_vi_vn": "Hãy chọn dịch vụ này nếu bạn muốn hỗ trợ tài xế trong giờ cao điểm, khi cần giao hàng lên lầu, nơi phải tốn phí giữ xe, khi thời tiết khó khăn, hoặc đơn giản là muốn thưởng thêm cho tài xế. Ngoài ra, tính năng này sẽ giúp cho đơn hàng của bạn được ưu tiên hơn trong thời gian cao điểm.",
+        "description_en_us": "This will show your support or compliment to the driver, especially in rush hours, hand to hand delivery, bad weather. Also, this feature will prioritize your request in peak time.",
+        "img_url": "http://file.hstatic.net/1000010797/file/tipping_final.jpg",
+        "max_input": 5,
+        "no_promotion": true
+      }
+    ],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-EXPRESS",
+    "commission_type": "PERCENTAGE",
+    "require_to": true,
+    "require_request": false,
+    "notify_package_return": true,
+    "cross_service": {
+      "enable": true,
+      "services": []
+    },
+    "cross_city": {
+      "enable": true,
+      "cities": [
+        "SGN"
+      ]
+    },
+    "available_districts": [
+      "VN.HC.QA",
+      "VN.HC.QB",
+      "VN.HC.QC",
+      "VN.HC.QD",
+      "VN.HC.QE",
+      "VN.HC.QF",
+      "VN.HC.QG",
+      "VN.HC.QH",
+      "VN.HC.QI",
+      "VN.HC.QJ",
+      "VN.HC.QK",
+      "VN.HC.QL",
+      "VN.HC.BT",
+      "VN.HC.BH",
+      "VN.HC.GV",
+      "VN.HC.PN",
+      "VN.HC.TB",
+      "VN.HC.TP",
+      "VN.HC.TD",
+      "VN.HC.BC",
+      "VN.HC.CG",
+      "VN.HC.CC",
+      "VN.HC.HM",
+      "VN.HC.NB",
+      "VN.TA",
+      "VN.DA",
+      "VN.TDM"
+    ],
+    "parent_id": "SGN-GROUP-BIKE_EXPRESS",
+    "city_id": "SGN",
+    "uniform_verify": true,
+    "enable": true,
+    "name": "Giao Gần",
+    "partner": "ahamove",
+    "name_vi_vn": "Giao Gần",
+    "name_en_us": "Giao Gần",
+    "icon_url": "https://ahamove.com/wp-content/uploads/2020/02/Giaogan-e1580899460893.png",
+    "map_icon_url": "https://ahamove.com/wp-content/uploads/2020/01/icon-tet.png",
+    "order": 1,
+    "broadcast_distance": 5000,
+    "advance_broadcast_distance": 2000,
+    "stop_fee": 5000,
+    "pending_period": 600,
+    "timeout": 1200,
+    "rebroadcast_interval": 1200,
+    "max_concurrent_orders": 1,
+    "max_stop_points": 1,
+    "cod": 10000000,
+    "max_cod": 500000,
+    "first_order_cod": 1,
+    "distance_fee": "(18000 if x <= 2 else 18000 + (x - 2) * 5000)",
+    "delivery_type": "INSTANT",
+    "commission_value": 0.236,
+    "cod_commission": {
+      "value": 0.008,
+      "none_commission_limit": 1000000
+    },
+    "max_distance": 10000,
+    "fee_description_en_us": "Thời gian:\n- 0 - 2km: 30 phút\n- 2 - 6km: 45 phút\n- 6 - 10km: 75 phút\n\nSố điểm giao hàng: 1\n\nPhí quãng đường:\n- 2 km đầu: 18,000đ\n- Trên 2 km: 5,000đ/km\n\nPhí COD:\n- COD < 1,000,000đ: miễn phí\n- COD >= 1,000,000đ: 0.8% x Giá trị COD",
+    "description_en_us": "Giao siêu nhanh chỉ 30 phút",
+    "description_vi_vn": "Giao siêu nhanh chỉ 30 phút",
+    "fee_description_vi_vn": "Thời gian:\n- 0 - 2km: 30 phút\n- 2 - 6km: 45 phút\n- 6 - 10km: 75 phút\n\nSố điểm giao hàng: 1\n\nPhí quãng đường:\n- 2 km đầu: 18,000đ\n- Trên 2 km: 5,000đ/km\n\nPhí COD:\n- COD < 1,000,000đ: miễn phí\n- COD >= 1,000,000đ: 0.8% x Giá trị COD",
+    "ignore_high_cancellation": true,
+    "committed_time_formula": "if ( x <= 2) {20} else if (x <= 6) {45} else {75}",
+    "event_callback": true,
+    "idle_timeout": 2,
+    "recommendation_config": {
+      "supplier_timeout": 20,
+      "recommend_timeout": 20,
+      "recommend_radius": 500,
+      "sleep_interval": 60,
+      "dispatch_mode": "RECOMMEND",
+      "pool_mode": "NO_POOL",
+      "pool_saving_threshold": 0.2,
+      "poolable": false
+    },
+    "set_idle_status_when_creating_order": false,
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "SGN-EXPRESS-ROUND-TRIP",
+        "name": "Quay lại điểm lấy hàng",
+        "enable": true,
+        "name_vi_vn": "Quay lại điểm lấy hàng",
+        "name_en_us": "Return to pick up location",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_round_trip.png",
+        "img_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_round_trip.png",
+        "order": 2,
+        "description_vi_vn": "Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 80% phí khoảng cách. Lưu ý: Phí khoảng cách là số phí dựa theo số km vận chuyển, không bao gồm phí điểm dừng và các loại phí khác.",
+        "description_en_us": "Driver will return to pick up location for 80% of distance fee. Note: Distance fee is calculated solely by the travel distance, it does not include stop fee and others fee",
+        "type": "COMMISSION_DISTANCE_PERCENTAGE",
+        "price": 0.8,
+        "description": "",
+        "service_id": "SGN-EXPRESS"
+      },
+      {
+        "_id": "SGN-EXPRESS-H2H",
+        "name": "Hand-to-hand",
+        "enable": true,
+        "name_vi_vn": "Hỗ trợ giao hàng tận tay",
+        "name_en_us": "Hand to hand delivery",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_d2d.png",
+        "img_url": "http://file.hstatic.net/1000010797/file/hand-to-hand.png",
+        "order": 3,
+        "price": 10000,
+        "max_input": 6,
+        "no_commission": true,
+        "description_vi_vn": "Khách hàng hỗ trợ chi phí giao hàng tận tay cho tài xế trong trường hợp các điểm giao thuộc chung cư,  cơ quan, bệnh viện,...Hãy chọn số lượng tương ứng với số điểm giao hàng bạn cần tài xế giao tận tay.",
+        "description_en_us": "Customer can request driver for hand to hand delivery service if drop off point is an apartment, an office , a hospital or a building. Please select the number of drop off points that need hand to hand delivery.",
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-EXPRESS"
+      },
+      {
+        "_id": "SGN-EXPRESS-TIP",
+        "name": "Hỗ trợ tài xế",
+        "enable": true,
+        "name_vi_vn": "Hỗ trợ tài xế",
+        "name_en_us": "Tipping",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sr_tipping.png",
+        "img_url": "http://file.hstatic.net/1000010797/file/tipping_final.jpg",
+        "order": 4,
+        "price": 5000,
+        "max_input": 5,
+        "no_commission": true,
+        "description_vi_vn": "Hãy chọn dịch vụ này nếu bạn muốn hỗ trợ tài xế trong giờ cao điểm, khi thời tiết khó khăn, hoặc đơn giản là muốn thưởng thêm cho tài xế. Ngoài ra, tính năng này sẽ giúp cho đơn hàng của bạn được ưu tiên hơn trong thời gian cao điểm.",
+        "description_en_us": "This will show your support or compliment to the driver, especially in rush hours, hand to hand delivery, bad weather. Also, this feature will prioritize your request in peak time.",
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-EXPRESS"
+      }
+    ],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-PARTNER-GEARVN",
+    "commission_type": "PERCENTAGE",
+    "require_to": true,
+    "require_request": false,
+    "notify_package_return": false,
+    "cross_service": {
+      "enable": false,
+      "services": []
+    },
+    "parent_id": "",
+    "city_id": "SGN",
+    "name": "GEARVN",
+    "name_vi_vn": "GEARVN",
+    "name_en_us": "GEARVN",
+    "icon_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/aha-service/SieuToc.jpg",
+    "map_icon_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/core_services/xe1-02.png",
+    "order": 1,
+    "broadcast_distance": 2000,
+    "advance_broadcast_distance": 2000,
+    "timeout": 1200,
+    "distance_fee": "0",
+    "stop_fee": 0,
+    "commission_value": 0,
+    "enable": true,
+    "available_districts": [
+      "VN.HC.QB",
+      "VN.HC.QC",
+      "VN.HC.NB",
+      "VN.HC.QG",
+      "VN.HC.BH",
+      "VN.HC.CG",
+      "VN.HC.GV",
+      "VN.HC.QK",
+      "VN.HC.QL",
+      "VN.HC.CC",
+      "VN.HC.PN",
+      "VN.HC.QJ",
+      "VN.HC.QD",
+      "VN.HC.BC",
+      "VN.HC.BT",
+      "VN.HC.QF",
+      "VN.HC.HM",
+      "VN.HC.QA",
+      "VN.HC.QE",
+      "VN.HC.TB",
+      "VN.HC.TD",
+      "VN.HC.QH",
+      "VN.HC.QI",
+      "VN.HC.TP"
+    ],
+    "max_stop_points": 20,
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-POOL",
+    "commission_type": "PERCENTAGE",
+    "require_to": true,
+    "require_request": false,
+    "parent_id": "HI",
+    "city_id": "SGN",
+    "rebroadcast_interval": 1200,
+    "enable": true,
+    "name": "Siêu Rẻ",
+    "name_vi_vn": "Siêu Rẻ",
+    "name_en_us": "Siêu Rẻ",
+    "icon_url": "https://ahamove-img.sgp1.digitaloceanspaces.com/core_services/sp-pool.png",
+    "map_icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/tv-supplier-aug312018.png",
+    "order": 2,
+    "broadcast_distance": 2000,
+    "advance_broadcast_distance": 1500,
+    "stop_fee": 5000,
+    "timeout": 600,
+    "cod": 1000000,
+    "first_order_cod": 1,
+    "description": "Save 20%, 2-hour delivery",
+    "description_vi_vn": "Tiết kiệm 20%, giao hàng tối đa 2 tiếng",
+    "distance_fee": "(18000 if x <= 4 else 18000 + (x - 4) * 4000)",
+    "set_idle_status_when_creating_order": false,
+    "idle_timeout": 180,
+    "commission_value": 0.236,
+    "max_concurrent_orders": 2,
+    "max_stop_points": 1,
+    "fee_description_vi_vn": "Phí tối thiểu (dưới 4km): đ16.000\nCác km tiếp theo: đ4.000\n\n\n* Dịch vụ này chỉ có thể hỗ trợ việc ứng COD dưới 1 triệu đồng.\n** Nếu giao đồ ăn, xin vui lòng cân nhắc thời gian giao hàng.",
+    "fee_description_en_us": "Minimum fee (within 4km): đ16.000\nPer km: đ4.000\n\n\n* We can only allow COD amount less than đ1,000,000\n** Please consider lead time if you want to use this service for food & drink delivery.",
+    "description_en_us": "Save 20%, 2-hour delivery",
+    "supplier_description": "https://ahamove.com/quy-trinh-giao-don-sieu-toc-sieu-re/",
+    "cross_service": {
+      "enable": true,
+      "services": [
+        "SGN-SAMEDAY",
+        "SGN-LAZADA",
+        "SGN-SENDO-TMDT"
+      ]
+    },
+    "cross_city": {
+      "enable": true,
+      "cities": [
+        "SGN"
+      ]
+    },
+    "available_districts": [
+      "VN.HC.NB",
+      "VN.HC.CG",
+      "VN.HC.CC",
+      "VN.HC.BC",
+      "VN.HC.HM",
+      "VN.TDM",
+      "VN.TA",
+      "VN.DA",
+      "VN.HC.QB",
+      "VN.HC.QC",
+      "VN.HC.QG",
+      "VN.HC.BH",
+      "VN.HC.GV",
+      "VN.HC.QK",
+      "VN.HC.QL",
+      "VN.HC.PN",
+      "VN.HC.QJ",
+      "VN.HC.QD",
+      "VN.HC.BT",
+      "VN.HC.QF",
+      "VN.HC.QA",
+      "VN.HC.QE",
+      "VN.HC.TB",
+      "VN.HC.TD",
+      "VN.HC.QH",
+      "VN.HC.QI",
+      "VN.HC.TP"
+    ],
+    "note": "xxx",
+    "event_callback": true,
+    "is_idle": false,
+    "uniform_verify_message_en_us": "Is your driver wearing proper uniform (including AhaMove's jacket, helmet)?",
+    "uniform_verify_message_vi_vn": "Tài xế có mang đồng phục (áo, nón) hay không?",
+    "recommendation_config": {
+      "supplier_timeout": 15,
+      "recommend_timeout": 45,
+      "poolable": true,
+      "recommend_radius": 1000,
+      "sleep_interval": 60,
+      "dispatch_mode": "RECOMMEND",
+      "pool_mode": "POOL_FIRST",
+      "pool_saving_threshold": 0.2
+    },
+    "max_cod_per_stop_point": 500000,
+    "delivery_type": "INSTANT",
+    "route_api_url": "https://osrm-wrapper-k2fa5mhmka-de.a.run.app/driving/",
+    "payment_method": [
+      {
+        "description": "Cash by recipient",
+        "description_vi_vn": "Người nhận trả tiền",
+        "payment": "cash_by_recipient"
+      }
+    ],
+    "max_cod": 300000,
+    "map_icon_3d": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/aha-chat-292008.appspot.com/o/3dicon%2Fsgn-pool.png?alt=media&token=f2a47f36-143f-4f61-bfbc-f6ecf0d4c2ac",
+      "sprite_size": 128,
+      "sprite_count": 64
+    },
+    "sprite_size": 128,
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "SGN-POOL-TRANSFER-COD",
+        "name": "Nộp tiền thu hộ",
+        "enable": true,
+        "support_remarks": true,
+        "name_vi_vn": "Nộp tiền thu hộ",
+        "name_en_us": "Nộp tiền thu hộ",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_d2d.png",
+        "order": 1,
+        "price": 0,
+        "no_commission": true,
+        "type": "BOOLEAN",
+        "service_id": "SGN-POOL",
+        "img_url": "http://file.hstatic.net/1000010797/file/hand-to-hand.png"
+      },
+      {
+        "_id": "SGN-POOL-ROUND-TRIP",
+        "name": "Quay lại điểm lấy hàng",
+        "enable": true,
+        "name_vi_vn": "Quay lại điểm lấy hàng",
+        "name_en_us": "Return to pick up location",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_round_trip.png",
+        "img_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_round_trip.png",
+        "order": 2,
+        "description_vi_vn": "Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 80% phí khoảng cách. Lưu ý: Phí khoảng cách là số phí dựa theo số km vận chuyển, ko bao gồm phí điểm dừng và các loại phí khác.",
+        "description_en_us": "Driver will return to pick up location for 80% of distance fee. Note: Distance fee is calculated solely by the travel distance, it does not include stop fee and others fee",
+        "type": "COMMISSION_DISTANCE_PERCENTAGE",
+        "price": 0.8,
+        "description": "",
+        "service_id": "SGN-POOL",
+        "supplier_description": "Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 80% phí khoảng cách. Lưu ý: Phí khoảng cách là số phí dựa theo số km vận chuyển, ko bao gồm phí điểm dừng và các loại phí khác."
+      },
+      {
+        "_id": "tao_story_138",
+        "name": "Táo Story 138 (1kg)",
+        "name_vi_vn": "Táo Story 138 (1kg)",
+        "name_en_us": "Táo Story 138 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_139",
+        "name": "Mận Story 139 (1kg)",
+        "name_vi_vn": "Táo Story 139 (1kg)",
+        "name_en_us": "Táo Story 139 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_140",
+        "name": "Ổi Story 140 (1kg)",
+        "name_vi_vn": "Ổi  Story 140 (1kg)",
+        "name_en_us": "Ổi  Story 140 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_141",
+        "name": "Táo Story 140 (1kg)",
+        "name_vi_vn": "Táo Story 140 (1kg)",
+        "name_en_us": "Táo Story 140 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_142",
+        "name": "Táo Story 140 (1kg)",
+        "name_vi_vn": "Táo Story 140 (1kg)",
+        "name_en_us": "Táo Story 140 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_143",
+        "name": "Táo Story 140 (1kg)",
+        "name_vi_vn": "Táo Story 140 (1kg)",
+        "name_en_us": "Táo Story 140 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_144",
+        "name": "Táo Story 140 (1kg)",
+        "name_vi_vn": "Táo Story 140 (1kg)",
+        "name_en_us": "Táo Story 140 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_145",
+        "name": "Táo Story 140 (1kg)",
+        "name_vi_vn": "Táo Story 140 (1kg)",
+        "name_en_us": "Táo Story 140 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_146",
+        "name": "Táo Story 140 (1kg)",
+        "name_vi_vn": "Táo Story 140 (1kg)",
+        "name_en_us": "Táo Story 140 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_147",
+        "name": "Táo Story 140 (1kg)",
+        "name_vi_vn": "Táo Story 140 (1kg)",
+        "name_en_us": "Táo Story 140 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_148",
+        "name": "Táo Story 140 (1kg)",
+        "name_vi_vn": "Táo Story 140 (1kg)",
+        "name_en_us": "Táo Story 140 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_149",
+        "name": "Táo Story 140 (1kg)",
+        "name_vi_vn": "Táo Story 140 (1kg)",
+        "name_en_us": "Táo Story 140 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "tao_story_150",
+        "name": "Táo Story 140 (1kg)",
+        "name_vi_vn": "Táo Story 140 (1kg)",
+        "name_en_us": "Táo Story 140 (1kg)",
+        "icon_url": "https://images.foody.vn/res/g8/77545/s120x120/3471ba73-d07a-4463-ab6b-23d755fb52a5.jpg",
+        "order": 2,
+        "price": 61750,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "kiwi_vang",
+        "name": "Kiwi vàng (1kg)",
+        "name_vi_vn": "Kiwi vàng (1kg)",
+        "name_en_us": "Kiwi vàng (1kg)",
+        "icon_url": "http://luontuoisach.vn/public/files/upload/product/1491014712kiwi-vang-fristgold.jpg",
+        "order": 3,
+        "price": 208050,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      },
+      {
+        "_id": "SGN-POOL-TIP",
+        "name": "Hỗ trợ tài xế",
+        "enable": true,
+        "name_vi_vn": "Hỗ trợ tài xế",
+        "name_en_us": "Tipping",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sr_tipping.png",
+        "img_url": "http://file.hstatic.net/1000010797/file/tipping_final.jpg",
+        "order": 4,
+        "no_commission": true,
+        "description_vi_vn": "Hãy chọn dịch vụ này nếu bạn muốn hỗ trợ tài xế trong giờ cao điểm, khi cần giao hàng lên lầu, nơi phải tốn phí giữ xe, khi thời tiết khó khăn, hoặc đơn giản là muốn thưởng thêm cho tài xế. Ngoài ra, tính năng này sẽ giúp cho đơn hàng của bạn được ưu tiên hơn trong thời gian cao điểm.",
+        "description_en_us": "This will show your support or compliment to the driver, especially in rush hours, hand to hand delivery, bad weather. Also, this feature will prioritize your request in peak time.",
+        "type": "PER_UNIT",
+        "price": 5000,
+        "description": "",
+        "service_id": "SGN-POOL",
+        "max_input": 6,
+        "no_promotion": true
+      },
+      {
+        "_id": "Tao_regal_queen_1",
+        "name": "Táo Regal Queen size 100- 110-120 (1kg)",
+        "name_vi_vn": "Táo Regal Queen size 100- 110-120 (1kg)",
+        "name_en_us": "Táo Regal Queen size 100- 110-120 (1kg)",
+        "icon_url": "http://luontuoisach.vn/public/files/upload/product/1586842999queen02.jpg",
+        "order": 4,
+        "price": 65550,
+        "max_input": 2,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-POOL",
+        "enable": true,
+        "no_commission": true
+      }
+    ],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-LAZADA",
+    "enable": true,
+    "order": 2,
+    "city_id": "SGN",
+    "name": "Thương Mại Điện Tử Lazada",
+    "broadcast_distance": 5000,
+    "name_vi_vn": "Thương Mại Điện Tử Lazada",
+    "icon_url": "https://trello-attachments.s3.amazonaws.com/5959c169ff857d53dd292999/5b73e5c38f17db297fb28c52/7db086ccc5a30461d075e8696b38bd2b/Untitled-1-01.png",
+    "map_icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/tv_bike_2.png",
+    "distance_fee": "(18000 if x <= 4 else 18000 + (x - 4) * 4000)",
+    "partner_distance_fee": "26000 if x <= 5 else 31000 if x <= 15 else 41000",
+    "commission_type": "PERCENTAGE",
+    "commission_value": 0.236,
+    "max_distance": 100000,
+    "stop_fee": 5000,
+    "name_en_us": "E-Commerce Lazada",
+    "require_to": true,
+    "name_vi_VN": "Giao hàng Lazada",
+    "auto_assign": false,
+    "auto_assign_distance": 1000,
+    "require_request": false,
+    "advance_broadcast_distance": 15000,
+    "timeout": 1728000,
+    "cod": 4000000,
+    "max_cod": 4000000,
+    "first_order_cod": 1,
+    "partner": true,
+    "max_stop_points": 10,
+    "max_concurrent_orders": 3,
+    "supplier_description": "https://ahamove.com/quy-trinh-giao-don-hang-thuong-mai-dien-tu/",
+    "parent_id": "PARTNER",
+    "idle_timeout": 300,
+    "last_valid_rebroadcast_hour": 16,
+    "last_valid_rts_hour": 16,
+    "next_valid_rebroadcast_hour": 8,
+    "rebroadcast_limit": 5,
+    "sms_when_boarding": false,
+    "notify_package_return": true,
+    "pending_period": 0,
+    "cross_service": {
+      "enable": true,
+      "services": [
+        "SGN-POOL",
+        "SGN-TMDT"
+      ]
+    },
+    "event_callback": true,
+    "set_idle_status_when_creating_order": true,
+    "note": "1. Vui lòng gọi điện cho người nhận trước khi đến lấy hàng. Không gọi cho người gửi (chỉ gọi trong trường hợp không thể tìm thấy địa chỉ trên đơn).\n2. Đơn hàng không cần ứng tiền COD, vẫn thu tiền COD từ người nhận và nộp lại qua MoMo/Tk AhaMove.\n3. Tài xế huỷ đơn thì phải gọi lên tổng đài. Tuyệt đối không lấy hàng đi nếu chưa gọi được cho người nhận.",
+    "recommendation_config": {
+      "supplier_timeout": 20,
+      "recommend_timeout": 100,
+      "recommend_radius": 2000,
+      "sleep_interval": 300,
+      "dispatch_mode": "RECOMMEND",
+      "pool_mode": "NO_POOL",
+      "pool_saving_threshold": 0.2,
+      "poolable": false
+    },
+    "delay_time": 3,
+    "valid_distance_to_perform_action": 5000000,
+    "map_icon_3d": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/aha-chat-292008.appspot.com/o/3dicon%2Fsgn-bike.png?alt=media&token=2a7a47ed-9e1b-453c-b049-038f588c1cdd",
+      "sprite_size": 32,
+      "sprite_count": 64
+    },
+    "rebroadcast_interval": 1200,
+    "opening_hours": "0-23",
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "SGN-LAZADA-TRANSFER-COD",
+        "name": "Nộp tiền thu hộ",
+        "enable": true,
+        "support_remarks": true,
+        "transfer_cod": false,
+        "name_vi_vn": "Nộp tiền thu hộ",
+        "name_en_us": "Nộp tiền thu hộ",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_d2d.png",
+        "order": 1,
+        "price": 0,
+        "no_commission": true,
+        "type": "BOOLEAN",
+        "service_id": "SGN-LAZADA",
+        "img_url": "http://file.hstatic.net/1000010797/file/hand-to-hand.png"
+      },
+      {
+        "_id": "SGN-LAZADA-BULKY",
+        "name": "Giao hàng cồng kềnh",
+        "enable": true,
+        "support_remarks": true,
+        "name_vi_vn": "Giao hàng công kềnh",
+        "name_en_us": "Bulky packages",
+        "icon_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Special+Request+Icon/Bulky_packages.jpg",
+        "order": 1,
+        "tier_list": [
+          {
+            "code": "TIER_1",
+            "name_vi_vn": "Tiêu chuẩn",
+            "name_en_us": "Standard",
+            "selectable": false,
+            "price": 0,
+            "price_description_vi_vn": "Miễn phí",
+            "price_description_en_us": "Free",
+            "description_vi_vn": "50x40x50:30kg",
+            "description_en_us": "50x40x50:30kg",
+            "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Bulky+Packages/Standard.png"
+          },
+          {
+            "code": "TIER_2",
+            "name_vi_vn": "Mức 1",
+            "name_en_us": "Package 1",
+            "price": 10000,
+            "selectable": true,
+            "description_vi_vn": "60x50x60:40kg",
+            "description_en_us": "60x50x60:40kg",
+            "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Bulky+Packages/Tier+1.png"
+          },
+          {
+            "code": "TIER_3",
+            "name_vi_vn": "Mức 2",
+            "name_en_us": "Package 2",
+            "selectable": true,
+            "price": 20000,
+            "description_vi_vn": "70x60x70:60kg",
+            "description_en_us": "70x60x70:60kg",
+            "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Bulky+Packages/Tier+2.png"
+          },
+          {
+            "code": "TIER_4",
+            "name_vi_vn": "Mức 3",
+            "name_en_us": "Package 3",
+            "selectable": true,
+            "price": 40000,
+            "description_vi_vn": "90x70x90:80kg",
+            "description_en_us": "90x70x90:80kg",
+            "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Bulky+Packages/Tier+3.png"
+          },
+          {
+            "code": "TIER_MAX",
+            "name_vi_vn": "Quá tải trọng",
+            "name_en_us": "Over",
+            "selectable": false,
+            "price": -1,
+            "price_description_vi_vn": "Quá tải trọng",
+            "price_description_en_us": "Overload",
+            "description_vi_vn": "90x60x90cm (100kg)",
+            "description_en_us": "90x60x90cm (100kg)",
+            "warning_message": "Hàng hoá có kích thước lớn vượt quá quy định, không cho phép vận chuyển bằng xe máy",
+            "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Bulky+Packages/Tier+max.png"
+          }
+        ],
+        "no_commission": false,
+        "type": "TIER",
+        "service_id": "SGN-LAZADA",
+        "img_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/Special+Request/Special+Request+Icon/Bulky_packages.jpg",
+        "description_vi_vn": "Giao hàng cồng kềnh",
+        "supplier_description_url": "https://ahamove.com/giao-hang-cong-kenh"
+      },
+      {
+        "_id": "SGN-LAZADA-THERMALBAG",
+        "name": "Túi giữ nhiệt",
+        "enable": true,
+        "name_vi_vn": "Túi giữ nhiệt",
+        "name_en_us": "Thermal Bag",
+        "icon_url": "https://trello-attachments.s3.amazonaws.com/5eabe9291dc6933e9e74eb2f/5f8531508904fa20c3cc89ad/1545287f04ffcc958416ab13b8bc3de5/2710.png",
+        "order": 1,
+        "price": 5000,
+        "description_vi_vn": "Túi giữ nhiệt",
+        "type": "BOOLEAN",
+        "description": "",
+        "service_id": "SGN-LAZADA"
+      }
+    ],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-SAMEDAY",
+    "set_idle_status_when_creating_order": true,
+    "idle_timeout": 1200,
+    "timeout": 1200,
+    "commission_type": "PERCENTAGE",
+    "require_to": true,
+    "require_request": false,
+    "rebroadcast_interval": 12000,
+    "rebroadcast_limit": 12,
+    "max_distance": 25000,
+    "city_id": "SGN",
+    "enable": true,
+    "name": "4H",
+    "name_vi_vn": "4H",
+    "name_en_us": "4H",
+    "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sp-sameday.png",
+    "map_icon_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/core_services/xe1-02.png",
+    "order": 4,
+    "broadcast_distance": 2000,
+    "advance_broadcast_distance": 5000,
+    "stop_fee": 5000,
+    "cod": 500000,
+    "max_cod": 1000000,
+    "first_order_cod": 1,
+    "description": "Giao hàng nội thành, cam kết trong 4 giờ*",
+    "description_vi_vn": "Giao hàng nội thành, cam kết trong 4 giờ*",
+    "distance_fee": "0",
+    "partner_distance_fee": "(22000 if x <= 10 else 27000 if x <= 15 else 32000 if x <= 20 else 32000 + (x- 20) * 5000)",
+    "commission_value": 0.236,
+    "max_concurrent_orders": 4,
+    "max_stop_points": 3,
+    "fee_description_vi_vn": "Bảng giá:\n0 - 10km: đ22.000\n10 - 15km: đ27.000\n15 - 20km: đ32.000\nGiờ đặt đơn: 9h - 17h\nCOD tối đa: đ500.000. Trọng lượng tối đa: 5kg. Kích thước tối đa: 25(D)x32(R)x12(C)cm\n* Giao hàng 4 giờ áp dụng cho đơn hàng dưới 15km.",
+    "fee_description_en_us": "Bảng giá:\n0 - 10km: đ22.000\n10 - 15km: đ27.000\n15 - 20km: đ32.000\nGiờ đặt đơn: 9h - 17h\nCOD tối đa: đ500.000. Trọng lượng tối đa: 5kg. Kích thước tối đa: 25(D)x32(R)x12(C)cm\n* Giao hàng 4 giờ áp dụng cho đơn hàng dưới 15km.",
+    "description_en_us": "Giao hàng nội thành, cam kết trong 4 giờ*",
+    "planner_config": {
+      "enable": true,
+      "base_price": 22000,
+      "epd_target": 5,
+      "vehicle_capacity": 6,
+      "idle_timeout": 300,
+      "outlier_service_id": "SGN-POOL",
+      "dispatch_mode": "AUTO_ASSIGN",
+      "matching_rate": 0.5,
+      "matching_timeout": 0,
+      "outlier_max_distance": 25000,
+      "max_distance": 25000,
+      "current_stop_loss": 15000,
+      "end_day_epd": 4.5,
+      "stop_loss": 1200000
+    },
+    "cross_service": {
+      "enable": true,
+      "services": [
+        "SGN-DG",
+        "SGN-POOL"
+      ]
+    },
+    "cross_city": {
+      "enable": true,
+      "cities": [
+        "SGN"
+      ]
+    },
+    "available_districts": [
+      "VN.HC.QC",
+      "VN.HC.QG",
+      "VN.HC.BH",
+      "VN.HC.GV",
+      "VN.HC.QK",
+      "VN.HC.PN",
+      "VN.HC.QJ",
+      "VN.HC.QD",
+      "VN.HC.BT",
+      "VN.HC.QF",
+      "VN.HC.QA",
+      "VN.HC.QE",
+      "VN.HC.TB",
+      "VN.HC.QH",
+      "VN.HC.TP"
+    ],
+    "drop_off_districts": [
+      "VN.HC.QA",
+      "VN.HC.QB",
+      "VN.HC.QC",
+      "VN.HC.QD",
+      "VN.HC.QE",
+      "VN.HC.QF",
+      "VN.HC.QG",
+      "VN.HC.QH",
+      "VN.HC.QJ",
+      "VN.HC.QK",
+      "VN.HC.BH",
+      "VN.HC.GV",
+      "VN.HC.PN",
+      "VN.HC.TB",
+      "VN.HC.TP",
+      "VN.HC.BT",
+      "VN.HC.QL",
+      "VN.HC.QB",
+      "VN.HC.QI",
+      "VN.HC.TD"
+    ],
+    "delivery_type": "SAMEDAY",
+    "notify_package_return": true,
+    "uniform_verify": true,
+    "max_cod_per_stop_point": 500000,
+    "service_hours": {
+      "0": [
+        {
+          "start_time": 540,
+          "end_time": 660
+        },
+        {
+          "start_time": 660,
+          "end_time": 780
+        },
+        {
+          "start_time": 780,
+          "end_time": 900
+        },
+        {
+          "start_time": 900,
+          "end_time": 1020
+        }
+      ],
+      "1": [
+        {
+          "start_time": 540,
+          "end_time": 660
+        },
+        {
+          "start_time": 660,
+          "end_time": 780
+        },
+        {
+          "start_time": 780,
+          "end_time": 900
+        },
+        {
+          "start_time": 900,
+          "end_time": 1020
+        }
+      ],
+      "2": [
+        {
+          "start_time": 540,
+          "end_time": 660
+        },
+        {
+          "start_time": 660,
+          "end_time": 780
+        },
+        {
+          "start_time": 780,
+          "end_time": 900
+        },
+        {
+          "start_time": 900,
+          "end_time": 1020
+        }
+      ],
+      "3": [
+        {
+          "start_time": 540,
+          "end_time": 660
+        },
+        {
+          "start_time": 660,
+          "end_time": 780
+        },
+        {
+          "start_time": 780,
+          "end_time": 900
+        },
+        {
+          "start_time": 900,
+          "end_time": 1020
+        }
+      ],
+      "4": [
+        {
+          "start_time": 540,
+          "end_time": 660
+        },
+        {
+          "start_time": 660,
+          "end_time": 780
+        },
+        {
+          "start_time": 780,
+          "end_time": 900
+        },
+        {
+          "start_time": 900,
+          "end_time": 1020
+        }
+      ],
+      "5": [
+        {
+          "start_time": 540,
+          "end_time": 660
+        },
+        {
+          "start_time": 660,
+          "end_time": 780
+        },
+        {
+          "start_time": 780,
+          "end_time": 900
+        },
+        {
+          "start_time": 900,
+          "end_time": 1020
+        }
+      ],
+      "6": [
+        {
+          "start_time": 540,
+          "end_time": 660
+        },
+        {
+          "start_time": 660,
+          "end_time": 780
+        },
+        {
+          "start_time": 780,
+          "end_time": 900
+        },
+        {
+          "start_time": 900,
+          "end_time": 1020
+        }
+      ]
+    },
+    "parent_id": "",
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "SGN-4H-POD-TRANSFER-COD",
+        "name": "Payment on delivery",
+        "enable": true,
+        "support_remarks": true,
+        "name_vi_vn": "Payment on delivery",
+        "name_en_us": "Payment on delivery",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_d2d.png",
+        "order": 1,
+        "price": 0,
+        "no_commission": true,
+        "type": "BOOLEAN",
+        "transfer_cod": true,
+        "service_id": "SGN-SAMEDAY",
+        "img_url": "http://file.hstatic.net/1000010797/file/hand-to-hand.png"
+      },
+      {
+        "_id": "SGN-SAMEDAY-TRANSFER-COD",
+        "name": "Nộp tiền thu hộ",
+        "enable": true,
+        "support_remarks": true,
+        "name_vi_vn": "Nộp tiền thu hộ",
+        "name_en_us": "Nộp tiền thu hộ",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_d2d.png",
+        "order": 1,
+        "price": 0,
+        "no_commission": true,
+        "type": "BOOLEAN",
+        "service_id": "SGN-SAMEDAY",
+        "img_url": "http://file.hstatic.net/1000010797/file/hand-to-hand.png"
+      }
+    ],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-2H",
+    "commission_type": "PERCENTAGE",
+    "require_to": true,
+    "require_request": false,
+    "notify_package_return": true,
+    "cross_service": {
+      "enable": true,
+      "services": [
+        {
+          "name": "SGN-POOL ",
+          "_id": "SGN-POOL",
+          "tick": true
+        },
+        {
+          "name": "SGN-LAZADA ",
+          "_id": "SGN-LAZADA",
+          "tick": true
+        },
+        {
+          "name": "SGN-TMDT ",
+          "_id": "SGN-TMDT",
+          "tick": true
+        }
+      ]
+    },
+    "parent_id": "PARTNER",
+    "city_id": "SGN",
+    "set_idle_status_when_creating_order": true,
+    "idle_timeout": 12000,
+    "name": "2H",
+    "name_vi_vn": "2H",
+    "name_en_us": "2H",
+    "icon_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/aha-service/4H.jpg",
+    "map_icon_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/core_services/xe1-02.png",
+    "order": 4,
+    "enable": true,
+    "broadcast_distance": 2000,
+    "advance_broadcast_distance": 5000,
+    "stop_fee": 5000,
+    "timeout": 4800,
+    "rebroadcast_interval": 4800,
+    "event_callback": true,
+    "recommendation_config": {
+      "supplier_timeout": 20,
+      "recommend_timeout": 100,
+      "recommend_radius": 2000,
+      "sleep_interval": 300,
+      "dispatch_mode": "RECOMMEND",
+      "pool_mode": "NO_POOL",
+      "pool_saving_threshold": 0.2,
+      "poolable": false
+    },
+    "pending_period": 0,
+    "delay_time": 3,
+    "max_distance": 100000,
+    "max_concurrent_orders": 3,
+    "advance_max_concurrent_orders": 3,
+    "max_stop_points": 10,
+    "first_order_cod": 1,
+    "distance_fee": "(18000 if x <= 4 else 18000 + (x - 4) * 4000)",
+    "note": "1. Vui lòng gọi điện cho người nhận trước khi đến lấy hàng. Không gọi cho người gửi (chỉ gọi trong trường hợp không thể tìm thấy địa chỉ trên đơn). \n2. Đối với đơn hàng khách hàng HOÀN TRẢ, vui lòng gọi điện cho cả người gửi và người nhận trước khi lấy hàng.\n3. Đơn hàng không cần ứng tiền COD, vẫn thu tiền COD từ người nhận và nộp lại qua MoMo/Tk AhaMove. \n4. Tài xế huỷ đơn thì phải gọi lên tổng đài. Tuyệt đối không lấy hàng đi nếu chưa gọi được cho người nhận.",
+    "commission_value": 0.236,
+    "opening_hours": "0-23",
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-DG",
+    "commission_type": "PERCENTAGE",
+    "require_to": true,
+    "require_request": false,
+    "parent_id": "",
+    "city_id": "SGN",
+    "name": "Đồng giá 25",
+    "name_vi_vn": "Đồng giá 25",
+    "name_en_us": "Đồng giá 25",
+    "cancel_timeout": 60,
+    "tooltips": {
+      "ASSIGNING": {
+        "message": [
+          "Your order has been confirmed.",
+          "Note: You can only cancel this order within 60 seconds"
+        ],
+        "message_vi_vn": [
+          "Đơn hàng của bạn đã được AhaMove xác nhận.",
+          "Lưu ý: Bạn chỉ có thể huỷ đơn hàng trong vòng 60 giây"
+        ]
+      }
+    },
+    "min_stop_points": 4,
+    "max_stop_points": 5,
+    "map_icon_url": "https://ahamove.com/wp-content/uploads/2019/01/icon-Tet.png",
+    "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sp-same-price.png",
+    "order": 5,
+    "broadcast_distance": 3000,
+    "advance_broadcast_distance": 3000,
+    "stop_fee": 25000,
+    "timeout": 1800,
+    "distance_fee": "25000 if x <= 25 else 25000 + (x - 25) * 10000",
+    "cod": 10000000,
+    "first_order_cod": 1,
+    "max_concurrent_orders": 2,
+    "enable": true,
+    "commission_value": 0.236,
+    "rebroadcast_interval": 1200,
+    "fee_description_en_us": "Stop point fee: đ25,000/stop point \nDistance fee:\n+ First 25km: Free\n+ Above 25km: đ10,000/km\n\n* VAT included\n* Minimum stop points per order: 04",
+    "description_en_us": "Save 50% - Delivery within 4h guaranteed",
+    "description_vi_vn": "Tiết kiệm 50%, giao hàng dưới 4 tiếng.",
+    "fee_description_vi_vn": "Phí điểm giao: đ25.000/điểm\nPhí quãng đường:\n+ 25km đầu: Miễn phí\n+ Trên 25km: đ10.000/km\n\n* Giá đã bao gồm VAT\n* Số điểm giao tối thiểu: 04 điểm",
+    "supplier_description": "https://ahamove.com/quy-trinh-nhan-don-dong-gia-25/",
+    "notify_package_return": true,
+    "pending_period": 60,
+    "cross_service": {
+      "enable": false,
+      "services": []
+    },
+    "cross_city": {
+      "enable": true,
+      "cities": [
+        "SGN"
+      ]
+    },
+    "available_districts": [
+      "VN.HC.NB",
+      "VN.HC.CG",
+      "VN.HC.CC",
+      "VN.HC.BC",
+      "VN.HC.HM",
+      "VN.TDM",
+      "VN.TA",
+      "VN.DA",
+      "VN.HC.QB",
+      "VN.HC.QC",
+      "VN.HC.QG",
+      "VN.HC.BH",
+      "VN.HC.GV",
+      "VN.HC.QK",
+      "VN.HC.QL",
+      "VN.HC.PN",
+      "VN.HC.QJ",
+      "VN.HC.QD",
+      "VN.HC.BT",
+      "VN.HC.QF",
+      "VN.HC.QA",
+      "VN.HC.QE",
+      "VN.HC.TB",
+      "VN.HC.TD",
+      "VN.HC.QH",
+      "VN.HC.QI",
+      "VN.HC.TP"
+    ],
+    "rebroadcast_limit": 1,
+    "uniform_verify": true,
+    "uniform_verify_message_en_us": "Is your driver wearing proper uniform (including AhaMove's jacket, helmet)?",
+    "uniform_verify_message_vi_vn": "Tài xế có mang đồng phục (áo, nón) hay không?",
+    "max_cod": 10000000,
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "SGN-DG-TIP",
+        "name": "Hỗ trợ tài xế",
+        "enable": true,
+        "name_vi_vn": "Hỗ trợ tài xế",
+        "name_en_us": "Tipping",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sr_tipping.png",
+        "img_url": "http://file.hstatic.net/1000010797/file/tipping_final.jpg",
+        "order": 1,
+        "price": 5000,
+        "max_input": 6,
+        "no_commission": true,
+        "description_vi_vn": "Hãy chọn dịch vụ này nếu bạn muốn hỗ trợ tài xế trong giờ cao điểm, khi cần giao hàng lên lầu, nơi phải tốn phí giữ xe, khi thời tiết khó khăn, hoặc đơn giản là muốn thưởng thêm cho tài xế. Ngoài ra, tính năng này sẽ giúp cho đơn hàng của bạn được ưu tiên hơn trong thời gian cao điểm.",
+        "description_en_us": "This will show your support or compliment to the driver, especially in rush hours, hand to hand delivery, bad weather. Also, this feature will prioritize your request in peak time.",
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-DG"
+      },
+      {
+        "_id": "SGN-DG-ROUND-TRIP",
+        "name": "Quay lại điểm lấy hàng",
+        "enable": true,
+        "name_vi_vn": "Quay lại điểm lấy hàng",
+        "name_en_us": "Return to pick up location",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_round_trip.png",
+        "img_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_round_trip.png",
+        "order": 2,
+        "price": 25000,
+        "description_vi_vn": "Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 25,000vnd",
+        "description_en_us": "Driver will return to the pick-up location with the fee of 25,000vnd",
+        "type": "BOOLEAN",
+        "description": "",
+        "service_id": "SGN-DG",
+        "supplier_description": "Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 80% phí khoảng cách. Lưu ý: Phí khoảng cách là số phí dựa theo số km vận chuyển, ko bao gồm phí điểm dừng và các loại phí khác."
+      }
+    ],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-INTERCT-GHN",
+    "commission_type": "PERCENTAGE",
+    "first_order_cod": 1,
+    "city_id": "SGN",
+    "broadcast_distance": 3000,
+    "enable": true,
+    "partner": true,
+    "timeout": 18000,
+    "name": "Giao hàng liên tỉnh",
+    "name_vi_vn": "Giao hàng liên tỉnh",
+    "name_en_us": "Giao hàng liên tỉnh",
+    "icon_url": "https://ahamoveimg.s3-ap-southeast-1.amazonaws.com/services/nationwide_service.png",
+    "map_icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/tv_motorcycle.png",
+    "order": 5,
+    "stop_fee": 0,
+    "distance_fee": "0",
+    "commission_value": 0.2,
+    "parent_id": "",
+    "require_to": true,
+    "max_distance": 2000000,
+    "delivery_type": "NATIONWIDE",
+    "partner_service_id": "53320",
+    "advance_broadcast_distance": 0,
+    "cross_service": {
+      "enable": true,
+      "services": []
+    },
+    "max_stop_points": 6,
+    "not_available_drop_off_districts": [
+      "VN.HC.CG",
+      "VN.HC.TD",
+      "VN.HC.QJ",
+      "VN.HC.QK",
+      "VN.HC.QG",
+      "VN.HC.BH",
+      "VN.HC.QF",
+      "VN.HC.QB",
+      "VN.HC.QI",
+      "VN.HC.TP",
+      "VN.HC.TB",
+      "VN.HC.QA",
+      "VN.HC.PN",
+      "VN.HC.BT",
+      "VN.HC.GV",
+      "VN.HC.HM",
+      "VN.HC.QH",
+      "VN.HC.QE",
+      "VN.HC.QC",
+      "VN.HC.CC",
+      "VN.HC.QD",
+      "VN.HC.NB",
+      "VN.HC.QL",
+      "VN.HC.BC"
+    ],
+    "note": "106.663631,10.769553",
+    "service_hours": {},
+    "max_cod": 30000000,
+    "payment_method": [
+      {
+        "description": "Balance",
+        "description_vi_vn": "Ví AhaMove",
+        "payment": "balance",
+        "order": 3
+      },
+      {
+        "description": "Cash",
+        "description_vi_vn": "Tiền mặt",
+        "payment": "cash",
+        "order": 3
+      }
+    ],
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "GHN-INSURANCE",
+        "name": "Bảo hiểm",
+        "enable": true,
+        "name_vi_vn": "Khai giá hàng ",
+        "name_en_us": "Declare-item-cost",
+        "icon_url": "as",
+        "img_url": "sdas",
+        "order": 2,
+        "description_vi_vn": "asd as",
+        "description_en_us": "as das",
+        "type": "COMMISSION_PERCENTAGE",
+        "price": 0.1,
+        "description": "",
+        "service_id": "SGN-INTERCT-GHN"
+      }
+    ],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-TRICYCLE",
+    "enable": true,
+    "order": 6,
+    "city_id": "SGN",
+    "name": "Xe ba gác",
+    "name_vi_vn": "Xe ba gác",
+    "name_en_us": "Tricycle",
+    "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sp-tricycle.png",
+    "map_icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/tv-tricycle.png",
+    "parent_id": "SGN-TRUCK",
+    "stop_fee": 10000,
+    "commission_type": "PERCENTAGE",
+    "commission_value": 0.23600000000000002,
+    "distance_fee": "(1.5 if 15.5<=h<=20 else 1)*(165000 if x <= 4 else 165000 + (x - 4) * 18000 if x <= 10 else 165000 + 6 * 18000 + (x - 10) * 13750 if x <= 15 else 165000 + 6 * 18000 + 5 * 13750  + (x - 15) * 13000)",
+    "broadcast_distance": 5000,
+    "note": "Chọn dịch vụ này khi khách hàng cần chuyển hàng hóa có khoảng cách di chuyển DƯỚI 10m",
+    "require_to": true,
+    "accept_interval": 3600,
+    "max_stop_points": 5,
+    "description": "Dịch vụ giao hàng bằng xe BA GÁC, đáp ứng nhu cầu giao hàng tức thời của cá nhân và doanh nghiệp",
+    "description_en_us": "TRICYCLE service description",
+    "fee_description": "- Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 80% phí khoảng cách.\n\n- Lưu ý: Phí khoảng cách là số phí dựa theo số km vận chuyển, ko bao gồm phí điểm dừng và các loại phí khác.- Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 80% phí khoảng cách.\n\n- Lưu ý: Phí khoảng cách là số phí dựa theo số km vận chuyển, ko bao gồm phí điểm dừng và các loại phí khác.- Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 80% phí khoảng cách.\n\n- Lưu ý: Phí khoảng cách là số phí dựa theo số km vận chuyển, ko bao gồm phí điểm dừng và các loại phí khác.- Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 80% phí khoảng cách.\n\n- Lưu ý: Phí khoảng cách là số phí dựa theo số km vận chuyển, ko bao gồm phí điểm dừng và các loại phí khác.",
+    "fee_description_en_us": "TRICYCLE fee description ",
+    "cross_service": {
+      "enable": false,
+      "services": []
+    },
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "SGN-TRICYCLE-2",
+        "icon_url": "http://hstatic.net/797/1000010797/10/2016/7-14/money.png",
+        "name": "PER UNIT",
+        "name_vi_vn": "PER UNIT",
+        "name_en_us": "PER UNIT",
+        "order": 2,
+        "price": 0,
+        "max_input": 10,
+        "type": "PER_UNIT",
+        "service_id": "SGN-TRICYCLE",
+        "enable": true
+      },
+      {
+        "_id": "SGN-TRICYCLE-3",
+        "name": "PERCENTAGE",
+        "enable": true,
+        "name_vi_vn": "PERCENTAGE",
+        "name_en_us": "PERCENTAGE",
+        "icon_url": "http://hstatic.net/797/1000010797/10/2016/7-14/money.png",
+        "order": 3,
+        "type": "COMMISSION_PERCENTAGE",
+        "price": 0,
+        "service_id": "SGN-TRICYCLE"
+      },
+      {
+        "_id": "SGN-TRICYCLE-4",
+        "name": "PERCENTAGE ON DISTANCE",
+        "enable": true,
+        "name_vi_vn": "PERCENTAGE ON DISTANCE",
+        "name_en_us": "PERCENTAGE ON DISTANCE",
+        "icon_url": "http://hstatic.net/797/1000010797/10/2016/7-14/money.png",
+        "order": 4,
+        "type": "COMMISSION_DISTANCE_PERCENTAGE",
+        "price": 0.8,
+        "service_id": "SGN-TRICYCLE"
+      },
+      {
+        "_id": "SGN-TRICYCLE-5",
+        "name": "FLAT COMMISSION ON USER INPUT",
+        "enable": true,
+        "name_vi_vn": "FLAT COMMISSION ON USER INPUT",
+        "name_en_us": "FLAT COMMISSION ON USER INPUT",
+        "icon_url": "http://hstatic.net/797/1000010797/10/2016/7-14/money.png",
+        "price": 0,
+        "type": "COMMISSION_FLAT",
+        "order": 5,
+        "service_id": "SGN-TRICYCLE"
+      },
+      {
+        "_id": "SGN-TRICYCLE-6",
+        "name": "ITEM",
+        "enable": true,
+        "name_vi_vn": "ITEM",
+        "name_en_us": "ITEM",
+        "icon_url": "http://hstatic.net/797/1000010797/10/2016/7-14/money.png",
+        "img_url": "",
+        "order": 6,
+        "price": 5000,
+        "item_price": 10000,
+        "max_input": 5,
+        "type": "ITEM",
+        "service_id": "SGN-TRICYCLE"
+      }
+    ],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-TRUCK-500",
+    "enable": true,
+    "order": 7,
+    "city_id": "SGN",
+    "name": "Xe tải 500kg",
+    "name_vi_vn": "Xe tải 500kg",
+    "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sp-truck-500.png",
+    "map_icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/tv-truck-500.png",
+    "parent_id": "SGN-TRUCK",
+    "stop_fee": 10000,
+    "commission_type": "PERCENTAGE",
+    "commission_value": 0.23600000000000002,
+    "distance_fee": "(1.5 if 15.5<=h<=20 else 1)*(185000 if x <= 4 else 185000 + (x - 4) * 20000 if x <= 10 else 185000 + 6 * 20000 + (x - 10) * 14375 if x <= 15 else 185000 + 6 * 20000 + 5 * 14375  + (x - 15) * 14000)",
+    "require_to": true,
+    "broadcast_distance": 5000,
+    "name_en_us": "Truck 500kg",
+    "max_stop_points": 5,
+    "fee_description": "Discount (total, daily, weekly): mình cần biết đc hiện giờ đã burn bao nhiu tiền cho các đơn hàng ( chỉ tính coupon)\n        => later: tỉ lệ phân bổ phần discount này theo nhóm kh như: new user vs old user ; theo category\n    -> Subsidize (total, daily, weekly): mình cần biết hiện giờ đang burn bao nhiu tiền cho việc subsidize tx\n        => later: benchmark đc với dv bike để biết đc là spending có đi đồng đều vs việc cải thiện đc các chỉ số hay ko  Transactions: transaction của từng ngày so với forecast đang như thế nào ? đã đạt đủ target hay chưa => điều chỉnh volume forecast nếu cần\n    Breakdown:\n    -> 1st booking: có bao nhiu kh mới đã sử dụng dv ?\n    -> transaction by category: dv nay phù hợp vs các merchant nào? \n            => later: benchmark volume của các merchant này vs dv bike để biết đc trending họ đã dịch chuyển volume như thế nào",
+    "cross_service": {
+      "enable": true,
+      "services": [
+        "SGN-TRUCK-2000"
+      ]
+    },
+    "max_concurrent_orders": 5,
+    "delivery_type": "TRUCK",
+    "notify_package_return": true,
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "SGN-TRUCK-500-BOCXEP",
+        "enable": true,
+        "order": 2,
+        "service_id": "SGN-TRUCK-500",
+        "type": "BOOLEAN",
+        "name": "Bốc xếp",
+        "description": "Bốc xếp tại các địa điểm xe có thể dừng, đỗ",
+        "name_vi_vn": "Bốc xếp",
+        "icon_url": "/images/request/boc_xep.png",
+        "price": 65000
+      },
+      {
+        "_id": "SGN-TRUCK-500-BOCXEP1",
+        "enable": true,
+        "order": 2,
+        "service_id": "SGN-TRUCK-500",
+        "type": "BOOLEAN",
+        "name": "Bốc xếp tận nơi",
+        "description": "Bốc xếp tại các địa điểm xe không thể dừng đỗ. Giao nhận hàng tại các nhà chung cư, văn phòng cao ốc, nhà cao tầng. Khoảng cách từ nơi giao nhận hàng đến xe hơn 5m và không quá 20m. Khách hàng và tài xế tự thỏa thuận nếu khoảng cạc từ nơi giao nhận hàng đến xe lớn hơn 20m",
+        "name_vi_vn": "Bốc xếp tận nơi",
+        "icon_url": "/images/request/boc_xep_tan_noi.png",
+        "price": 85000
+      },
+      {
+        "_id": "SGN-TRUCK-500-CART",
+        "enable": true,
+        "order": 3,
+        "service_id": "SGN-TRUCK-500",
+        "type": "PER_UNIT",
+        "name": "Cart",
+        "name_vi_vn": "Xe đẩy",
+        "icon_url": "/images/request/xe_day.png",
+        "price": 50000
+      },
+      {
+        "_id": "SGN-TRUCK-500-COD",
+        "enable": true,
+        "order": 3,
+        "service_id": "SGN-TRUCK-500",
+        "type": "COMMISSION_PERCENTAGE",
+        "name": "Thu tiền hộ",
+        "price": 0.1,
+        "icon_url": "/images/request/COD.png"
+      }
+    ],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-TRUCK-2000",
+    "enable": true,
+    "order": 8,
+    "city_id": "SGN",
+    "name": "Xe tải 2000kg",
+    "name_vi_vn": "Xe tải 2000kg",
+    "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sp-truck-1000.png",
+    "map_icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/tv-truck-1000.png",
+    "stop_fee": 50000,
+    "commission_type": "PERCENTAGE",
+    "commission_value": 0,
+    "distance_fee": "480000 if x <= 5 else 480000 + (x - 5) * 13000 if x <= 150 else 2365000 + (x - 150) * 11000",
+    "name_en_us": "Truck 2000kg",
+    "require_to": true,
+    "broadcast_distance": 15000,
+    "max_stop_points": 20,
+    "max_distance": 10000000,
+    "cross_service": {
+      "enable": true,
+      "services": [
+        "SGN-TRUCK-500"
+      ]
+    },
+    "parent_id": "SGN-TRUCK",
+    "tooltips": {
+      "ASSIGNING": {
+        "message": [
+          "Đơn hàng của bạn đã được AhaMove xác nhận.",
+          "Hệ thống đang tìm kiếm đối tác giao hàng.",
+          "Vui lòng chờ trong vòng 10 - 20 phút."
+        ],
+        "message_vi_vn": [
+          "Đơn hàng của bạn đã được AhaMove xác nhận.",
+          "Hệ thống đang tìm kiếm đối tác giao hàng.",
+          "Vui lòng chờ trong vòng 10 - 20 phút."
+        ]
+      },
+      "ACCEPTED": {
+        "message": [
+          "Xin chúc mừng! Đã có tài xế nhận đơn hàng của bạn.",
+          "Tài xế sẽ đến điểm lấy hàng trong vòng 15 - 60 phút.",
+          "Hãy liên hệ tài xế nếu bạn có bất kỳ thay đổi nào."
+        ],
+        "message_vi_vn": [
+          "Xin chúc mừng! Đã có tài xế nhận đơn hàng của bạn.",
+          "Tài xế sẽ đến điểm lấy hàng trong vòng 15 - 60 phút.",
+          "Hãy liên hệ tài xế nếu bạn có bất kỳ thay đổi nào."
+        ]
+      }
+    },
+    "fee_description_en_us": "Minimum fee (within 5km): đ480.000\n5 - 150km: đ13.000/km\n150km+: đ11.000/km\n\n* Stop fee: đ50.000/point\n* VAT included\n* Size: 400 cm * 180 cm * 185 cm\n* CBM: 13",
+    "description_en_us": "Dịch vụ thuê tải nguyên chuyến 2000kg",
+    "description_vi_vn": "Dịch vụ thuê tải nguyên chuyến 2000kg",
+    "fee_description_vi_vn": "Phí tối thiểu (dưới 5km): đ480.000\n5 - 150km: đ13.000/km\n150km+: đ11.000/km\n\n* Phí điểm dừng: đ50.000/điểm\n* Phí đã bao gồm VAT\n* Hàng hóa có sẵn, đóng gói gọn gàng\n* Thời gian lấy hàng và xuống hàng không quá 180 phút cho 2 đầu. (Trường hợp quá giờ, khách hàng vui lòng thoả thuận với tài xế)\n* Kích thước: 400 cm * 180 cm * 185 cm\n* CBM: 13",
+    "partner": true,
+    "rebroadcast_interval": 1200,
+    "cross_city": {
+      "enable": true,
+      "cities": [
+        "SGN",
+        "THD",
+        "BHC"
+      ]
+    },
+    "max_concurrent_orders": 5,
+    "note": "1. Giao “ĐÚNG NGƯỜI” và “ĐÚNG ĐỊA CHỈ” như trên đơn hàng. \n2. Mọi trường hợp thay đổi thông tin giao nhận hàng hóa vui lòng liên hệ tổng đài.\n3. Chụp lại địa chỉ giao hàng thực tế cho Người Nhận khi hoàn thành đơn hàng",
+    "opening_hours": "1-15",
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "SGN-TRUCK-2000-ROUND-TRIP",
+        "name": "Quay về điểm lấy hàng (chiều về)",
+        "name_vi_vn": "Quay về điểm lấy hàng (chiều về)",
+        "name_en_us": "ROUND TRIP",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_round_trip.png",
+        "img_url": "https://ahamove-img.sgp1.digitaloceanspaces.com/core_services/ic_round_trip.png",
+        "order": 1,
+        "description_vi_vn": "- Tài xế sẽ quay lại điểm lấy hàng với số phí bằng 40% phí khoảng cách.\n\n- Lưu ý: Phí khoảng cách là số phí dựa theo số km vận chuyển, ko bao gồm phí điểm dừng và các loại phí khác.",
+        "description_en_us": "Driver will return to pick up location for 40% of distance fee.\nNote: Distance fee is calculated solely by the travel distance, it does not include stop fee and others fee",
+        "enable": true,
+        "type": "COMMISSION_DISTANCE_PERCENTAGE",
+        "price": 0.4,
+        "description": "",
+        "service_id": "SGN-TRUCK-2000"
+      },
+      {
+        "_id": "SGN-TRUCK-2000-BOCXEP",
+        "name": "Bốc xếp",
+        "enable": true,
+        "name_vi_vn": "Bốc xếp (theo số lượng nguời)",
+        "name_en_us": "Loading/Unloading (per helper)",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_bocxep_o.png",
+        "img_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_bocxep_o.png",
+        "order": 2,
+        "price": 200000,
+        "type": "PER_UNIT",
+        "description": "",
+        "service_id": "SGN-TRUCK-2000",
+        "max_input": 0,
+        "description_vi_vn": "Chọn dịch vụ này khi khách hàng cần hỗ trợ chuyển hàng hóa. Khách hàng chọn số lượng người hỗ trợ bốc xếp",
+        "description_en_us": "Customer chooses this option will require moving help. Customer can choose the number of movers"
+      }
+    ],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-HUB",
+    "commission_type": "PERCENTAGE",
+    "require_to": true,
+    "require_request": false,
+    "parent_id": "",
+    "city_id": "SGN",
+    "enable": true,
+    "name": "HUB",
+    "name_vi_vn": "HUB",
+    "need_confirm_before_pickup": true,
+    "name_en_us": "HUB",
+    "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sp_hub.png",
+    "map_icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/tv_motorcycle.png",
+    "order": 10,
+    "broadcast_distance": 5000,
+    "stop_fee": 5000,
+    "distance_fee": "30000 if x <= 6 else 30000 + (x - 6) * 5000",
+    "commission_value": 0.3,
+    "accept_interval": 1800,
+    "timeout": 1800,
+    "cod": 50000000,
+    "stop_failed": 5000,
+    "advance_broadcast_distance": 5000,
+    "partner": true,
+    "max_concurrent_orders": 3,
+    "cross_service": {
+      "enable": false,
+      "services": []
+    },
+    "max_stop_points": 21,
+    "delivery_type": "HUB",
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-ECOM-AUTOTEST",
+    "enable": true,
+    "order": 99,
+    "city_id": "SGN",
+    "name": "Giao hàng eCommerce",
+    "rebroadcast_interval": 1200,
+    "broadcast_distance": 3000,
+    "name_vi_vn": "Giao hàng eCommerce",
+    "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sp-bike.png",
+    "map_icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/tv_bike_2.png",
+    "distance_fee": "(18000 if x <= 4 else 18000 + (x - 4) * 4000)",
+    "partner_distance_fee": "26000 if x <= 5 else 31000 if x <= 15 else 41000",
+    "commission_type": "PERCENTAGE",
+    "commission_value": 0.236,
+    "max_distance": 100000,
+    "stop_fee": 5000,
+    "name_en_us": "Service eCommerce",
+    "require_to": true,
+    "name_vi_VN": "Giao hàng eCommerce",
+    "auto_assign": false,
+    "auto_assign_distance": 1000,
+    "require_request": false,
+    "advance_broadcast_distance": 3000,
+    "timeout": 120,
+    "cod": 10000000,
+    "first_order_cod": 1,
+    "partner": true,
+    "max_stop_points": 10,
+    "max_concurrent_orders": 3,
+    "fee_description_en_us": "Minimum fee (within 6km): đ30.000\nPer km: đ5.000",
+    "description_en_us": "Deliver within an hour",
+    "description_vi_vn": "Giao hàng trong 1h",
+    "fee_description_vi_vn": "Phí tối thiểu (dưới 6km): đ30.000\nCác km tiếp theo: đ5.000",
+    "tooltips": {
+      "ASSIGNING": {
+        "message": [
+          "Đơn hàng của bạn đang được AhaMove xử lí. Sẽ có tài xế chấp nhận trong 5-10' tiếp theo!"
+        ],
+        "message_vi_vn": [
+          "Đơn hàng của bạn đang được AhaMove xử lí. Sẽ có tài xế chấp nhận trong 5-10' tiếp theo!"
+        ]
+      },
+      "ACCEPTED": {
+        "message": [
+          "Driver will arrive to your location within 15 minutes",
+          "Delivery time can take up to 2 hours"
+        ],
+        "message_vi_vn": [
+          "Tài xế sẽ đến chỗ bạn trong vòng 15 phút",
+          "Thời gian giao hàng có thể lên đến 2 tiếng"
+        ]
+      }
+    },
+    "supplier_description": "https://ahamove.com/quy-trinh-giao-don-hang-thuong-mai-dien-tu/",
+    "rebroadcast_limit": 2,
+    "idle_timeout": 180,
+    "last_valid_rebroadcast_hour": 18,
+    "next_valid_rebroadcast_hour": 18,
+    "last_valid_rts_hour": 9,
+    "note": "1. Vui lòng gọi điện cho người nhận trước khi đến lấy hàng.\n2. Đơn hàng không cần ứng tiền COD, vẫn thu tiền COD từ người nhận và nộp lại qua MoMo/Tk Ahamove.\n3. Tài xế huỷ đơn thì phải gọi lên tổng đài. Tuyệt đối không lấy hàng đi nếu chưa gọi được cho người nhận.\n4. Olala.\n5. Olele.",
+    "sms_when_boarding": false,
+    "last_valid_ro_hour": 19,
+    "cross_service": {
+      "enable": true,
+      "non-category": [
+        "Corporation - Cake",
+        "Corporation - Dry food"
+      ],
+      "services": [
+        "SGN-POOL",
+        "SGN-SENDO-TMDT"
+      ]
+    },
+    "valid_distance_to_perform_action": 5000000,
+    "event_callback": true,
+    "recommendation_config": {
+      "supplier_timeout": 15,
+      "recommend_timeout": 45,
+      "poolable": true,
+      "recommend_radius": 500
+    },
+    "set_idle_status_when_creating_order": false,
+    "notify_package_return": true,
+    "max_cod": 10000000,
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-HUB-SP",
+    "commission_type": "PERCENTAGE",
+    "require_to": true,
+    "require_request": false,
+    "parent_id": "",
+    "city_id": "SGN",
+    "enable": true,
+    "name": "HUB theo điểm",
+    "name_vi_vn": "HUB theo điểm",
+    "name_en_us": "HUB SP",
+    "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/sp_hub.png",
+    "map_icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/tv_motorcycle.png",
+    "order": 99,
+    "broadcast_distance": 3000,
+    "stop_fee": 12000,
+    "distance_fee": "0",
+    "commission_value": 0.3,
+    "accept_interval": 1800,
+    "delivery_type": "HUB",
+    "timeout": 1800,
+    "cod": 50000000,
+    "stop_failed": 12000,
+    "advance_broadcast_distance": 10000,
+    "supplier_description": "https://ahamove.com/quy-trinh-giao-nhan-don-hub/",
+    "max_concurrent_orders": 3,
+    "partner": true,
+    "max_stop_points": 21,
+    "cross_service": {
+      "services": [],
+      "enable": true
+    },
+    "location": [
+      {
+        "lng": 106.67065,
+        "lat": 10.775649
+      },
+      {
+        "lng": 106.665744,
+        "lat": 10.769048
+      },
+      {
+        "lng": 106.666679,
+        "lat": 10.768264
+      },
+      {
+        "lng": 106.6161817,
+        "lat": 10.7413936
+      },
+      {
+        "lng": 106.645744,
+        "lat": 10.777895
+      },
+      {
+        "lng": 106.6428865,
+        "lat": 10.7788695
+      },
+      {
+        "lng": 106.6450908,
+        "lat": 10.7788797
+      },
+      {
+        "lng": 106.670807,
+        "lat": 10.77499
+      },
+      {
+        "lng": 106.715297,
+        "lat": 10.738243
+      },
+      {
+        "lng": 106.624703,
+        "lat": 10.787934
+      },
+      {
+        "lng": 106.70374,
+        "lat": 10.756295
+      },
+      {
+        "lng": 106.688508,
+        "lat": 10.791544
+      },
+      {
+        "lng": 106.644945,
+        "lat": 10.755281
+      },
+      {
+        "lng": 106.660735,
+        "lat": 10.754732
+      },
+      {
+        "lng": 106.739348,
+        "lat": 10.860514
+      },
+      {
+        "lng": 106.711245,
+        "lat": 10.804908
+      },
+      {
+        "lng": 106.643241,
+        "lat": 10.781547
+      },
+      {
+        "lng": 106.644795,
+        "lat": 10.800572
+      },
+      {
+        "lng": 106.612857,
+        "lat": 10.758142
+      },
+      {
+        "lng": 106.678136,
+        "lat": 10.799385
+      },
+      {
+        "lng": 106.630817,
+        "lat": 10.758031
+      },
+      {
+        "lng": 106.664376,
+        "lat": 10.777264
+      },
+      {
+        "lng": 106.615785,
+        "lat": 10.866922
+      },
+      {
+        "lng": 106.625486,
+        "lat": 10.854663
+      },
+      {
+        "lng": 106.704609,
+        "lat": 10.824076
+      },
+      {
+        "lng": 106.6450908,
+        "lat": 10.7788797
+      },
+      {
+        "lng": 106.670807,
+        "lat": 10.77499
+      },
+      {
+        "lng": 106.715297,
+        "lat": 10.738243
+      },
+      {
+        "lng": 106.624703,
+        "lat": 10.787934
+      },
+      {
+        "lng": 106.70374,
+        "lat": 10.756295
+      },
+      {
+        "lng": 106.688508,
+        "lat": 10.791544
+      },
+      {
+        "lng": 106.644945,
+        "lat": 10.755281
+      },
+      {
+        "lng": 106.660735,
+        "lat": 10.754732
+      },
+      {
+        "lng": 106.739348,
+        "lat": 10.860514
+      },
+      {
+        "lng": 106.711245,
+        "lat": 10.804908
+      },
+      {
+        "lng": 106.643241,
+        "lat": 10.781547
+      },
+      {
+        "lng": 106.644795,
+        "lat": 10.800572
+      },
+      {
+        "lng": 106.612857,
+        "lat": 10.758142
+      },
+      {
+        "lng": 106.678136,
+        "lat": 10.799385
+      },
+      {
+        "lng": 106.630817,
+        "lat": 10.758031
+      },
+      {
+        "lng": 106.664376,
+        "lat": 10.777264
+      },
+      {
+        "lng": 106.615785,
+        "lat": 10.866922
+      },
+      {
+        "lng": 106.625486,
+        "lat": 10.854663
+      },
+      {
+        "lng": 106.704609,
+        "lat": 10.824076
+      },
+      {
+        "lng": 106.670647,
+        "lat": 10.775668
+      },
+      {
+        "lng": 106.669694,
+        "lat": 10.773767
+      },
+      {
+        "lng": 106.670639,
+        "lat": 10.814403
+      },
+      {
+        "lng": 106.6631894,
+        "lat": 10.7693553
+      },
+      {
+        "lng": 106.66353,
+        "lat": 10.7694278
+      },
+      {
+        "lng": 106.6637936,
+        "lat": 10.7692105
+      },
+      {
+        "lng": 106.6631845,
+        "lat": 10.7696055
+      }
+    ],
+    "max_distance": 100000,
+    "need_confirm_before_pickup": true,
+    "available_districts": [
+      "VN.HC.NB",
+      "VN.HC.QB",
+      "VN.HC.QC",
+      "VN.HC.QG",
+      "VN.HC.BH",
+      "VN.HC.GV",
+      "VN.HC.QK",
+      "VN.HC.QL",
+      "VN.HC.PN",
+      "VN.HC.QJ",
+      "VN.HC.QD",
+      "VN.HC.BT",
+      "VN.HC.QF",
+      "VN.HC.QA",
+      "VN.HC.QE",
+      "VN.HC.TB",
+      "VN.HC.TD",
+      "VN.HC.QH",
+      "VN.HC.QI",
+      "VN.HC.TP",
+      "VN.HC.BC"
+    ],
+    "max_cod": 50000000,
+    "notify_package_return": true,
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "SGN-HUB-SP-TRANSFER-COD",
+        "name": "Thu hộ COD",
+        "enable": true,
+        "name_vi_vn": "Thu hộ COD",
+        "name_en_us": "Collect COD",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_d2d.png",
+        "order": 1,
+        "no_commission": true,
+        "price": 0,
+        "type": "BOOLEAN",
+        "description": "",
+        "service_id": "SGN-HUB-SP",
+        "transfer_cod": true
+      }
+    ],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-HEINEKEN",
+    "commission_type": "PERCENTAGE",
+    "require_to": true,
+    "require_request": false,
+    "parent_id": "",
+    "city_id": "SGN",
+    "enable": true,
+    "partner": true,
+    "name": "Heineken",
+    "name_vi_vn": "Heineken",
+    "name_en_us": "Heineken",
+    "icon_url": "https://www.heineken.com/us/~/resources/Heineken/USA/footer_images/heineken_tout_lager.jpg",
+    "map_icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/tv_motorcycle.png",
+    "order": 99,
+    "pending_period": 200,
+    "broadcast_distance": 5000,
+    "advance_broadcast_distance": 5000,
+    "supplier_description": "https://ahamove.com/quy-trinh-giao-don-heineken/",
+    "stop_fee": 5000,
+    "timeout": 1200,
+    "distance_fee": "(23000 if x <= 5 else 23000 + (x - 5) * 5000)",
+    "commission_value": 0.23600000000000002,
+    "valid_distance_to_perform_action": 20000,
+    "cross_service": {
+      "enable": true,
+      "services": [
+        "SGN-BIKE"
+      ]
+    },
+    "note": "1. Vui lòng gọi điện cho người nhận trước khi đến lấy hàng.\n2. Để người bàn giao hàng cập nhật trạng thái ĐÃ LẤY HÀNG.\n3. Giao “ĐÚNG NGƯỜI” và “ĐÚNG ĐỊA CHỈ” như trên đơn hàng. Trường hợp thay đổi thông tin giao nhận hàng hóa vui lòng liên hệ tổng đài. \n4. Chụp lại địa chỉ giao hàng thực tế cho Người Nhận khi hoàn thành đơn hàng.",
+    "recommendation_config": {
+      "supplier_timeout": 20,
+      "recommend_timeout": 60,
+      "poolable": true,
+      "recommend_radius": 500,
+      "sleep_interval": 300,
+      "dispatch_mode": "RECOMMEND",
+      "pool_mode": "NO_POOL",
+      "pool_saving_threshold": 0.2
+    },
+    "max_concurrent_orders": 2,
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [],
+    "currency": "VND"
+  },
+  {
+    "_id": "SGN-TMDT",
+    "commission_type": "PERCENTAGE",
+    "require_to": true,
+    "require_request": true,
+    "notify_package_return": true,
+    "partner": true,
+    "cross_service": {
+      "enable": false,
+      "services": []
+    },
+    "parent_id": "",
+    "city_id": "SGN",
+    "uniform_verify": false,
+    "enable": true,
+    "name": "Thương Mại Điện Tử",
+    "name_vi_vn": "Thương Mại Điện Tử",
+    "name_en_us": "E-Commerce",
+    "icon_url": "https://trello-attachments.s3.amazonaws.com/5959c169ff857d53dd292999/5b73e5c38f17db297fb28c52/7db086ccc5a30461d075e8696b38bd2b/Untitled-1-01.png",
+    "map_icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/tv_bike_2.png",
+    "order": 99,
+    "broadcast_distance": 3000,
+    "advance_broadcast_distance": 5000,
+    "stop_fee": 4000,
+    "pending_period": 0,
+    "timeout": 360,
+    "rebroadcast_interval": 21600,
+    "max_distance": 100000,
+    "max_concurrent_orders": 3,
+    "advance_max_concurrent_orders": 3,
+    "max_stop_points": 5,
+    "cod": 30000000,
+    "max_cod": 30000000,
+    "first_order_cod": 1,
+    "distance_fee": "(18000 if x <= 4 else 18000 + (x - 4) * 4000)",
+    "accept_message": "",
+    "note": "",
+    "commission_value": 0.23600000000000002,
+    "recommendation_config": {
+      "supplier_timeout": 20,
+      "recommend_timeout": 100,
+      "recommend_radius": 1000,
+      "sleep_interval": 300,
+      "dispatch_mode": "RECOMMEND",
+      "pool_mode": "NO_POOL",
+      "pool_saving_threshold": 0.2,
+      "poolable": false
+    },
+    "set_idle_status_when_creating_order": false,
+    "animated_url": "https://i.imgur.com/xiDxEYN.png",
+    "requests": [
+      {
+        "_id": "SGN-TMDT-TRANSFER-COD",
+        "name": "Nộp tiền thu hộ",
+        "enable": true,
+        "name_vi_vn": "Nộp tiền thu hộ",
+        "name_en_us": "Collect COD",
+        "icon_url": "https://s3-ap-southeast-1.amazonaws.com/ahamoveimg/core_services/ic_d2d.png",
+        "img_url": "http://file.hstatic.net/1000010797/file/hand-to-hand.png",
+        "order": 1,
+        "price": 0,
+        "no_commission": true,
+        "type": "BOOLEAN",
+        "description": "",
+        "service_id": "SGN-TMDT",
+        "transfer_cod": true
+      },
+      {
+        "_id": "SGN-TMDT-THERMALBAG",
+        "name": "Túi giữ nhiệt",
+        "name_vi_vn": "Túi giữ nhiệt",
+        "description_vi_vn": "Túi giữ nhiệt",
+        "name_en_us": "Thermal Bag",
+        "icon_url": "https://trello-attachments.s3.amazonaws.com/5eabe9291dc6933e9e74eb2f/5f8531508904fa20c3cc89ad/1545287f04ffcc958416ab13b8bc3de5/2710.png",
+        "order": 1,
+        "price": 5000,
+        "type": "BOOLEAN",
+        "description": "",
+        "service_id": "SGN-TMDT",
+        "enable": true
+      }
+    ],
+    "currency": "VND"
+  }
+]

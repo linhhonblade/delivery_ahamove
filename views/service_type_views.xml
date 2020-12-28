@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_delivery_ahamove_service_type_form" model="ir.ui.view">
+        <field name="name">delivery_ahamove.service_type.form</field>
+        <field name="model">delivery_ahamove.service_type</field>
+        <field name="arch" type="xml">
+            <form string="Ahamove Service Types">
+                <sheet>
+                    <div class="oe_title" name="title">
+                        <label for="name" string="Name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Siêu Tốc"/>
+                        </h1>
+                    </div>
+                    <group name="service_details">
+                        <field name="code"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_delivery_ahamove_service_type_tree" model="ir.ui.view">
+        <field name="name">delivery_ahamove.service_type.tree</field>
+        <field name="model">delivery_ahamove.service_type</field>
+        <field name="arch" type="xml">
+            <tree string="Ahamove Service Types">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_delivery_ahamove_service_type_form" model="ir.actions.act_window">
+        <field name="name">Ahamove Service Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">delivery_ahamove.service_type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem action="action_delivery_ahamove_service_type_form"
+              id="menu_action_delivery_ahamove_service_type_form" parent="delivery.menu_delivery"
+              sequence="1"/>
+
+</odoo>

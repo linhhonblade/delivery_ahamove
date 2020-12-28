@@ -1,3 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+from . import ahamove_serice_type
+from . import delivery_carrier
+from . import res_config_settings

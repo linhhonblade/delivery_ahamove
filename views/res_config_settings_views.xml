@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.ahamove</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="30"/>
+            <field name="inherit_id" ref="stock.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[@data-key='stock']"
+                       position="inside" >
+                    <h2>Ahamove Shipping</h2>
+                    <div class="row mt16 o_settings_container" name="operation_setting_container">
+                        <div class="col-12 col-lg-6 o_setting_box" id="ahamove_token"
+                             title="Ahamove API token">
+                            <div class="o_setting_right_pane">
+                                <label for="token_ahamove" string="Ahamove Token"/>
+                                <div>
+                                    <field name="token_ahamove"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="ahamove_refresh_token">
+                            <div class="o_setting_right_pane">
+                                <label for="refresh_token_ahamove" string="Ahamove Refresh Token"/>
+                                <div>
+                                    <field name="refresh_token"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

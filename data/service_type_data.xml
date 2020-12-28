@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sgn-bike" model="delivery_ahamove.service_type">
+            <field name="name">Siêu Tốc</field>
+            <field name="code">SGN-BIKE</field>
+            <field file="delivery_ahamove/static/img/sp-bike.png" name="icon" type="base64"/>
+            <field name="description">Deliver within an hour</field>
+        </record>
+        <record id="sgn-express" model="delivery_ahamove.service_type">
+            <field name="name">Giao Gần</field>
+            <field name="code">SGN-EXPRESS</field>
+            <field file="delivery_ahamove/static/img/giaogan.png" name="icon" type="base64"/>
+            <field name="description">Deliver within half an hour</field>
+        </record>
+    </data>
+</odoo>
