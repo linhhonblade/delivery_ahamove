@@ -11,7 +11,6 @@ from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
-TIMEOUT = 20
 AHAMOVE_API_BASE_URL = 'https://apistg.ahamove.com/'
 
 class Ahamove(models.Model):
@@ -22,7 +21,7 @@ class Ahamove(models.Model):
     service_type = fields.Many2one('delivery_ahamove.service_type')
 
     @api.model
-    def _do_request(self, preuri, uri, params={}, headers={}, type='POST'):
+    def _do_request(self, url, params={}, headers={}, type='POST'):
         """
         Execute the request to Ahamove API.
         :param uri: the url to contact
@@ -32,17 +31,16 @@ class Ahamove(models.Model):
         :param preuri: pre url to prepend to param uri
         :return: a tuple ('HTTP_CODE', 'HTTP_RESPONSE')
         """
-        _logger.debug("Preuri: %s - Uri: %s - Type: %s - Headers: %s - Params: %s !", (preuri, uri,
+        _logger.debug("Preuri: %s - Url: %s - Type: %s - Headers: %s - Params: %s !", (url,
                                                                                        type,
                                                                                   headers,
                                                                           params))
 
         if type.upper() in 'GET':
-            res = requests.request(type.lower(), preuri + uri, params=params, timeout=TIMEOUT)
+            res = requests.get(url, params=params, headers=headers)
             _logger.debug("URL: %s", res.url)
         elif type.upper() in 'POST':
-            res = requests.request(type.lower(), preuri + uri, data=params, headers=headers,
-                                       timeout=TIMEOUT)
+            res = requests.post(url, params=params, headers=headers)
             _logger.debug("URL: %s", res.url)
         else:
             raise Exception(_('Method not supported [%s] not in [GET or POST]') % (type))
@@ -50,20 +48,22 @@ class Ahamove(models.Model):
 
     def _generate_data_from_order(self, order):
         token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token', default='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhaGEiLCJ0eXAiOiJ1c2VyIiwiY2lkIjoiODQ4Mzg0Mzk0ODMiLCJzdGF0dXMiOiJPTkxJTkUiLCJlb2MiOm51bGwsIm5vYyI6IlwiUGhhbSBUaGkgTmdvYyBNYWlcIiIsImN0eSI6IkhBTiIsImFjY291bnRfc3RhdHVzIjoiQUNUSVZBVEVEIiwiZXhwIjoxNjA4NzE1NzUyLCJwYXJ0bmVyIjoiYXJyb3doaXRlY2gifQ.uTDVjsMfx6aqhh-k7nVo-hGyBzklGH0ZZ3L_QnnA2-M')
-        path_to = {
-            'address': '%s, %s' % (order.partner_id.street, order.partner_id.city),
-            'name': order.partner_id.name,
-            'mobile': order.partner_id.mobile
-        }
         sending_from = order.warehouse_id.partner_id
-        path_from = {
-            'address': '%s, %s' % (sending_from.street, sending_from.city)
-        }
+        path = [
+            {
+                'address': '%s, %s' % (sending_from.street, sending_from.city)
+            },
+            {
+                'address': '%s, %s' % (order.partner_id.street, order.partner_id.city),
+                'name': order.partner_id.name,
+                'mobile': order.partner_id.mobile
+            }
+        ]
         return {
             'token': token_ahamove,
             'order_time': 0,
-            'path': [path_from, path_to],
-            'services': [{'_id': self.service_type.code}],
+            'path': json.dumps(path),
+            'service_id': self.service_type.code,
             'requests': [],
             'payment_method': 'CASH',
         }
@@ -71,11 +71,8 @@ class Ahamove(models.Model):
     def _generate_data_from_picking(self, picking):
         order = self.env['sale.order'].search([('name', '=', picking.origin)])
         data = self._generate_data_from_order(order[0])
-        services = data.pop('services')
-        data['service_id'] = services[0]['_id']
-        data['requests'] = []
         data['items'] = []
-        data['order_time'] = 0
+        _logger.debug("Data: %s", data)
         return data
 
     def ahamove_rate_shipment(self, order):
@@ -87,17 +84,20 @@ class Ahamove(models.Model):
                        'error_message': a string containing an error message,
                        'warning_message': a string containing a warning message}
         """
-        uri = 'v2/order/estimated_fee'
-        headers = {'Content-Type': 'application/json'}
-        data_json = json.dumps(self._generate_data_from_order(order))
+        uri = 'v1/order/estimated_fee'
+        headers = {
+            'Accept': '*/*',
+            'Cache-Control': 'no-cache'
+        }
+        payload = self._generate_data_from_order(order)
         try:
-            res = self._do_request(AHAMOVE_API_BASE_URL, uri, data_json, headers,
+            res = self._do_request(AHAMOVE_API_BASE_URL + uri, payload, headers,
                                    type='POST')
             _logger.debug("Response: %s", res.text)
             res.raise_for_status()
             return {
                 'success': True,
-                'price': res.json()[0]['total_price'],
+                'price': res.json()['total_price'],
             }
         except requests.HTTPError as e:
             try:
@@ -121,16 +121,16 @@ class Ahamove(models.Model):
              'tracking_number': number}
         """
         uri = 'v1/order/create'
-        headers = {'Accept': '*/*', 'Content-Type': 'application/json', 'Cache-Control': 'no-cache'}
+        headers = {'Accept': '*/*', 'Cache-Control': 'no-cache'}
         result = []
         for picking in pickings:
-            data_json = json.dumps(self._generate_data_from_picking(picking))
+            payload = self._generate_data_from_picking(picking)
             try:
-                res = self._do_request(AHAMOVE_API_BASE_URL, uri, data_json, headers, type='POST')
+                res = self._do_request(AHAMOVE_API_BASE_URL + uri, payload, headers, type='POST')
                 _logger.debug("Response: %s", res.text)
                 res.raise_for_status()
                 result.append({'exact_price': res.json()['order']['total_pay'],
-                               'tracking_number': res.json()['shared_link']})
+                               'tracking_number': res.json()['order_id']})
             except requests.HTTPError as e:
                 try:
                     response = e.response.json()
@@ -144,4 +144,58 @@ class Ahamove(models.Model):
                 raise UserError(message)
         return result
 
+    def ahamove_get_tracking_link(self, picking):
+        """Ask the tracking link to the service provider
+        :param picking: record of stock.picking
+        :return str: an URL containing the tracking link or False
+        """
 
+        uri = 'v1/order/shared_link'
+        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token')
+        payload = {
+            'token': token_ahamove,
+            'order_id': picking.carrier_tracking_ref
+        }
+        headers = {
+            'Cache-Control': 'no-cache'
+        }
+        try:
+            res = self._do_request(AHAMOVE_API_BASE_URL + uri, payload, headers, type='GET')
+            _logger.debug("Response: %s", res.text)
+            res.raise_for_status()
+            return res.json()['shared_link']
+        except requests.HTTPError as e:
+            return False
+
+    def ahamove_cancel_shipment(self, pickings):
+        """
+        Cancel a shipment
+        :param pickings: a recordset of pickings
+        """
+
+        uri = 'v1/order/cancel'
+        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token')
+        headers = {
+            'Cache-Control': 'no-cache'
+        }
+        for picking in pickings:
+            payload = {
+                'token': token_ahamove,
+                'order_id': picking.carrier_tracking_ref,
+                'comment': ''
+            }
+            try:
+                res = self._do_request(AHAMOVE_API_BASE_URL + uri, payload, headers, type='GET')
+                _logger.debug("Response: %s", res.text)
+                res.raise_for_status()
+            except requests.HTTPError as e:
+                try:
+                    response = e.response.json()
+                    error = response.get('error', {}).get('message')
+                except Exception:
+                    error = None
+                if not error:
+                    raise e
+                message = _("Cannot cancel the picking %s due to the following error: %s") % \
+                              (picking.name, error)
+                raise UserError(message)
