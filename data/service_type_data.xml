@@ -13,5 +13,39 @@
             <field file="delivery_ahamove/static/img/giaogan.png" name="icon" type="base64"/>
             <field name="description">Deliver within half an hour</field>
         </record>
+        <record id="sgn-partner-gearvn" model="delivery_ahamove.service_type">
+            <field name="name">GEARVN</field>
+            <field name="code">SGN-PARTNER-GEARVN</field>
+            <field file="delivery_ahamove/static/img/SieuToc.jpeg" name="icon" type="base64"/>
+        </record>
+        <record id="sgn-pool" model="delivery_ahamove.service_type">
+            <field name="name">Siêu Rẻ</field>
+            <field name="code">SGN-POOL</field>
+            <field file="delivery_ahamove/static/img/sp-pool.png" name="icon" type="base64"/>
+            <field name="description">Save 20%, 2-hour delivery</field>
+        </record>
+        <record id="sgn-lazada" model="delivery_ahamove.service_type">
+            <field name="name">Thương Mại iĐện Tử Lazada</field>
+            <field name="code">SGN-LAZADA</field>
+            <field file="delivery_ahamove/static/img/lazada.png" name="icon" type="base64"/>
+            <field name="description">Giao hàng Lazada</field>
+        </record>
+        <record id="sgn-sameday" model="delivery_ahamove.service_type">
+            <field name="name">4H</field>
+            <field name="code">SGN-SAMEDAY</field>
+            <field file="delivery_ahamove/static/img/sp-sameday.png" name="icon" type="base64"/>
+            <field name="description">Giao hàng nội thành, cam kết trong 4 giờ</field>
+        </record>
+        <record id="sgn-2h" model="delivery_ahamove.service_type">
+            <field name="name">2H</field>
+            <field name="code">SGN-2H</field>
+            <field file="delivery_ahamove/static/img/4H.jpeg" name="icon" type="base64"/>
+        </record>
+        <record id="sgn-dg" model="delivery_ahamove.service_type">
+            <field name="name">Đồng Giá 25</field>
+            <field name="code">SGN-DG</field>
+            <field file="delivery_ahamove/static/img/icon-Tet.png" name="icon" type="base64"/>
+            <field name="description">Save 50% - Delivery within 4h guaranteed</field>
+        </record>
     </data>
 </odoo>
