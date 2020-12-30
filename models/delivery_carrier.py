@@ -42,12 +42,10 @@ class Ahamove(models.Model):
         elif type.upper() in 'POST':
             res = requests.post(url, params=params, headers=headers)
             _logger.debug("URL: %s", res.url)
-        else:
-            raise Exception(_('Method not supported [%s] not in [GET or POST]') % (type))
         return res
 
     def _generate_data_from_order(self, order):
-        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token', default='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhaGEiLCJ0eXAiOiJ1c2VyIiwiY2lkIjoiODQ4Mzg0Mzk0ODMiLCJzdGF0dXMiOiJPTkxJTkUiLCJlb2MiOm51bGwsIm5vYyI6IlwiUGhhbSBUaGkgTmdvYyBNYWlcIiIsImN0eSI6IkhBTiIsImFjY291bnRfc3RhdHVzIjoiQUNUSVZBVEVEIiwiZXhwIjoxNjA4NzE1NzUyLCJwYXJ0bmVyIjoiYXJyb3doaXRlY2gifQ.uTDVjsMfx6aqhh-k7nVo-hGyBzklGH0ZZ3L_QnnA2-M')
+        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token', default='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhaGEiLCJ0eXAiOiJ1c2VyIiwiY2lkIjoiODQ4Mzg0Mzk0ODMiLCJzdGF0dXMiOiJPTkxJTkUiLCJlb2MiOm51bGwsIm5vYyI6IlwiUGhhbSBUaGkgTmdvYyBNYWlcIiIsImN0eSI6IkhBTiIsImFjY291bnRfc3RhdHVzIjoiQUNUSVZBVEVEIiwiZXhwIjoxNjA5MjExNDUzLCJwYXJ0bmVyIjoiYXJyb3doaXRlY2gifQ.wDMPf78V7xH3x74T1nRmnWME5Cquf5KsMXJLbLIpWKo')
         sending_from = order.warehouse_id.partner_id
         path = [
             {
@@ -174,7 +172,7 @@ class Ahamove(models.Model):
         """
 
         uri = 'v1/order/cancel'
-        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token')
+        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token', default='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhaGEiLCJ0eXAiOiJ1c2VyIiwiY2lkIjoiODQ4Mzg0Mzk0ODMiLCJzdGF0dXMiOiJPTkxJTkUiLCJlb2MiOm51bGwsIm5vYyI6IlwiUGhhbSBUaGkgTmdvYyBNYWlcIiIsImN0eSI6IkhBTiIsImFjY291bnRfc3RhdHVzIjoiQUNUSVZBVEVEIiwiZXhwIjoxNjA5MjExNDUzLCJwYXJ0bmVyIjoiYXJyb3doaXRlY2gifQ.wDMPf78V7xH3x74T1nRmnWME5Cquf5KsMXJLbLIpWKo')
         headers = {
             'Cache-Control': 'no-cache'
         }
