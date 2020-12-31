@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo.tests import common, Form
+from odoo.exceptions import UserError
 
 from odoo.addons.delivery.tests.test_delivery_cost import TestDeliveryCost
 
@@ -45,18 +46,6 @@ class TestDeliveryAPI(TestDeliveryCost):
             })],
         })
 
-        self.product_something_cute = self.Product.create({
-            'sale_ok': True,
-            'list_price': 750000.00,
-            'standard_price': 300000.00,
-            'uom_id': self.product_uom_hour.id,
-            'uom_po_id': self.product_uom_hour.id,
-            'name': 'Cuteness',
-            'categ_id': self.product_category.id,
-            'type': 'product',
-            'qty_available': 10.0
-        })
-
         # I add delivery cost in Sale order
         delivery_wizard = Form(self.env['choose.delivery.carrier'].with_context({
             'default_order_id': self.sale_order_ahamove.id,
@@ -80,9 +69,15 @@ class TestDeliveryAPI(TestDeliveryCost):
         self.picking.action_done()
         self.picking.button_validate()
 
-        # Check the tracking reference is populated
+        # Check the carrier id is added to picking
+        self.assertNotEqual(self.picking.carrier_id, False, 'Carrier not found')
+
+        # Check the tracking number is populated
         self.assertNotEqual(self.picking.carrier_tracking_ref, False, 'Tracking reference not found')
-        # self.assertNotEqual(self.picking.carrier_tracking_url, False, 'Tracking url not found')
+
+        # Check the tracking url is generated
+        self.picking._compute_carrier_tracking_url()
+        self.assertNotEqual(self.picking.carrier_tracking_url, False, 'Tracking url not found')
 
         # I cancel shipment
         self.picking.cancel_shipment()
@@ -90,5 +85,58 @@ class TestDeliveryAPI(TestDeliveryCost):
         self.assertEqual(self.picking.carrier_tracking_url, False, 'Shipment data no cleared '
                                                                    'after being cancelled')
 
+    def test_01_delivery_cost(self):
+        # In order to test Ahamove Carrier Cost
+        # Create sales order with Ahamove Delivery Method
+
+        self.sale_order_ahamove = self.SaleOrder.create({
+            'partner_id': self.partner_misa.id,
+            'partner_invoice_id': self.partner_misa.id,
+            'partner_shipping_id': self.partner_misa.id,
+            'pricelist_id': self.pricelist.id,
+            'order_line': [(0, 0, {
+                'name': 'PC Assamble + 2GB RAM',
+                'product_id': self.product_4.id,
+                'product_uom_qty': 1,
+                'product_uom': self.product_uom_unit.id,
+                'price_unit': 750000.00,
+            })],
+        })
+
+        # I want my shipping switch to production environment
+        # I edit the shipping method form
+        with Form(self.ahamove_delivery) as f:
+            f.prod_environment = True
+            f.save()
+        # Check if the api url changed to production
+        self.assertEqual(self.ahamove_delivery.AHAMOVE_API_BASE_URL,
+                             'https://api.ahamove.com/',
+                        'Api url not change to production')
+
+        # I add delivery cost in Sale order but now should generate UserError
+        delivery_wizard = Form(self.env['choose.delivery.carrier'].with_context({
+                'default_order_id': self.sale_order_ahamove.id,
+                'default_carrier_id': self.ahamove_delivery.id
+            }))
+        with self.assertRaises(UserError) as context:
+            choose_delivery_carrier = delivery_wizard.save()
+            choose_delivery_carrier.update_price()
+            choose_delivery_carrier.button_confirm()
+
+        # I check sales order after added delivery cost
+        # There should be no shipping product
+        line = self.SaleOrderLine.search([('order_id', '=', self.sale_order_ahamove.id),
+                                              ('product_id', '=',
+                                               self.ahamove_delivery.product_id.id)])
+        self.assertEqual(len(line), 0, "Delivery cost should have not added due to wrong api "
+                                           "token")
+
+        # Change back to test environment
+        with Form(self.ahamove_delivery) as f:
+            f.prod_environment = False
+            f.save()
+        self.assertEqual(self.ahamove_delivery.AHAMOVE_API_BASE_URL,
+                             'https://apistg.ahamove.com/', 'Api url not change to test '
+                                                            'environment')
 
 
