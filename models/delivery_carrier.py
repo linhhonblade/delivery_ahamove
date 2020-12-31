@@ -10,8 +10,7 @@ from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
-
-AHAMOVE_API_BASE_URL = 'https://apistg.ahamove.com/'
+DEFAULT_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhaGEiLCJ0eXAiOiJ1c2VyIiwiY2lkIjoiODQ4Mzg0Mzk0ODMiLCJzdGF0dXMiOiJPTkxJTkUiLCJlb2MiOm51bGwsIm5vYyI6IlwiUGhhbSBUaGkgTmdvYyBNYWlcIiIsImN0eSI6IkhBTiIsImFjY291bnRfc3RhdHVzIjoiQUNUSVZBVEVEIiwiZXhwIjoxNjA5MjExNDUzLCJwYXJ0bmVyIjoiYXJyb3doaXRlY2gifQ.wDMPf78V7xH3x74T1nRmnWME5Cquf5KsMXJLbLIpWKo'
 
 class Ahamove(models.Model):
     _description = "Ahamove Shipping Method"
@@ -19,6 +18,22 @@ class Ahamove(models.Model):
 
     delivery_type = fields.Selection(selection_add=[('ahamove', 'Ahamove')])
     service_type = fields.Many2one('delivery_ahamove.service_type')
+    AHAMOVE_API_BASE_URL = fields.Char(compute='_compute_ahamove_api_base_url')
+
+    @api.depends('prod_environment')
+    def _compute_ahamove_api_base_url(self):
+        for carrier in self:
+            if carrier.prod_environment:
+                carrier.AHAMOVE_API_BASE_URL = 'https://api.ahamove.com/'
+            else:
+                carrier.AHAMOVE_API_BASE_URL = 'https://apistg.ahamove.com/'
+
+    @api.onchange('prod_environment')
+    def _on_change_prod_environment(self):
+        if self.prod_environment:
+            self.AHAMOVE_API_BASE_URL = 'https://api.ahamove.com/'
+        else:
+            self.AHAMOVE_API_BASE_URL = 'https://apistg.ahamove.com/'
 
     @api.model
     def _do_request(self, url, params={}, headers={}, type='POST'):
@@ -45,7 +60,8 @@ class Ahamove(models.Model):
         return res
 
     def _generate_data_from_order(self, order):
-        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token', default='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhaGEiLCJ0eXAiOiJ1c2VyIiwiY2lkIjoiODQ4Mzg0Mzk0ODMiLCJzdGF0dXMiOiJPTkxJTkUiLCJlb2MiOm51bGwsIm5vYyI6IlwiUGhhbSBUaGkgTmdvYyBNYWlcIiIsImN0eSI6IkhBTiIsImFjY291bnRfc3RhdHVzIjoiQUNUSVZBVEVEIiwiZXhwIjoxNjA5MjExNDUzLCJwYXJ0bmVyIjoiYXJyb3doaXRlY2gifQ.wDMPf78V7xH3x74T1nRmnWME5Cquf5KsMXJLbLIpWKo')
+        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token',
+                                                                         default=DEFAULT_TOKEN)
         sending_from = order.warehouse_id.partner_id
         path = [
             {
@@ -89,7 +105,7 @@ class Ahamove(models.Model):
         }
         payload = self._generate_data_from_order(order)
         try:
-            res = self._do_request(AHAMOVE_API_BASE_URL + uri, payload, headers,
+            res = self._do_request(self.AHAMOVE_API_BASE_URL + uri, payload, headers,
                                    type='POST')
             _logger.debug("Response: %s", res.text)
             res.raise_for_status()
@@ -97,16 +113,11 @@ class Ahamove(models.Model):
                 'success': True,
                 'price': res.json()['total_price'],
             }
-        except requests.HTTPError as e:
-            try:
-                response = e.response.json()
-                error = response.get('error', {}).get('message')
-            except Exception:
-                error = None
-            if not error:
-                raise e
+        except requests.HTTPError:
+            response = res.json()
+            description = response['description']
             message = _('The order "%s" cannot be estimated because of the following error: %s') % (
-                order.name, error
+                order.name, description
             )
             raise UserError(message)
 
@@ -124,21 +135,17 @@ class Ahamove(models.Model):
         for picking in pickings:
             payload = self._generate_data_from_picking(picking)
             try:
-                res = self._do_request(AHAMOVE_API_BASE_URL + uri, payload, headers, type='POST')
+                res = self._do_request(self.AHAMOVE_API_BASE_URL + uri, payload, headers,
+                                       type='POST')
                 _logger.debug("Response: %s", res.text)
                 res.raise_for_status()
                 result.append({'exact_price': res.json()['order']['total_pay'],
                                'tracking_number': res.json()['order_id']})
-            except requests.HTTPError as e:
-                try:
-                    response = e.response.json()
-                    error = response.get('error', {}).get('message')
-                except Exception:
-                    error = None
-                if not error:
-                    raise e
+            except requests.HTTPError:
+                response = res.json()
+                description = response['description']
                 message = _('The shipment %s cannot be created because of the following error: '
-                            '%s') % (picking.name, error)
+                            '%s') % (picking.name, description)
                 raise UserError(message)
         return result
 
@@ -149,7 +156,8 @@ class Ahamove(models.Model):
         """
 
         uri = 'v1/order/shared_link'
-        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token')
+        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token',
+                                                                         default=DEFAULT_TOKEN)
         payload = {
             'token': token_ahamove,
             'order_id': picking.carrier_tracking_ref
@@ -158,11 +166,11 @@ class Ahamove(models.Model):
             'Cache-Control': 'no-cache'
         }
         try:
-            res = self._do_request(AHAMOVE_API_BASE_URL + uri, payload, headers, type='GET')
+            res = self._do_request(self.AHAMOVE_API_BASE_URL + uri, payload, headers, type='GET')
             _logger.debug("Response: %s", res.text)
             res.raise_for_status()
             return res.json()['shared_link']
-        except requests.HTTPError as e:
+        except requests.HTTPError:
             return False
 
     def ahamove_cancel_shipment(self, pickings):
@@ -172,7 +180,8 @@ class Ahamove(models.Model):
         """
 
         uri = 'v1/order/cancel'
-        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token', default='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhaGEiLCJ0eXAiOiJ1c2VyIiwiY2lkIjoiODQ4Mzg0Mzk0ODMiLCJzdGF0dXMiOiJPTkxJTkUiLCJlb2MiOm51bGwsIm5vYyI6IlwiUGhhbSBUaGkgTmdvYyBNYWlcIiIsImN0eSI6IkhBTiIsImFjY291bnRfc3RhdHVzIjoiQUNUSVZBVEVEIiwiZXhwIjoxNjA5MjExNDUzLCJwYXJ0bmVyIjoiYXJyb3doaXRlY2gifQ.wDMPf78V7xH3x74T1nRmnWME5Cquf5KsMXJLbLIpWKo')
+        token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token',
+                                                                         default=DEFAULT_TOKEN)
         headers = {
             'Cache-Control': 'no-cache'
         }
@@ -183,17 +192,13 @@ class Ahamove(models.Model):
                 'comment': ''
             }
             try:
-                res = self._do_request(AHAMOVE_API_BASE_URL + uri, payload, headers, type='GET')
+                res = self._do_request(self.AHAMOVE_API_BASE_URL + uri, payload, headers,
+                                       type='GET')
                 _logger.debug("Response: %s", res.text)
                 res.raise_for_status()
-            except requests.HTTPError as e:
-                try:
-                    response = e.response.json()
-                    error = response.get('error', {}).get('message')
-                except Exception:
-                    error = None
-                if not error:
-                    raise e
+            except requests.HTTPError:
+                response = res.json()
+                description = response['description']
                 message = _("Cannot cancel the picking %s due to the following error: %s") % \
-                              (picking.name, error)
+                              (picking.name, description)
                 raise UserError(message)
