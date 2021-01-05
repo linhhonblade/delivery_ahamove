@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from datetime import datetime
-import json
 import logging
 
 import requests
@@ -36,21 +34,17 @@ class Ahamove(models.Model):
             self.AHAMOVE_API_BASE_URL = 'https://apistg.ahamove.com/'
 
     @api.model
-    def _do_request(self, url, params={}, headers={}, type='POST'):
+    def _do_request(self, url, params, headers, type='POST'):
         """
         Execute the request to Ahamove API.
-        :param uri: the url to contact
+        :param url: the endpoint url
         :param params: parameters dictionary
         :param headers: headers of the request
         :param type: the method to use to make the request
-        :param preuri: pre url to prepend to param uri
         :return: a tuple ('HTTP_CODE', 'HTTP_RESPONSE')
         """
-        _logger.debug("Preuri: %s - Url: %s - Type: %s - Headers: %s - Params: %s !", (url,
-                                                                                       type,
-                                                                                  headers,
-                                                                          params))
-
+        _logger.debug("Preuri: %s - Url: %s - Type: %s - Headers: %s - Params: %s !",
+                      (url, type, params))
         if type.upper() in 'GET':
             res = requests.get(url, params=params, headers=headers)
             _logger.debug("URL: %s", res.url)
@@ -63,20 +57,14 @@ class Ahamove(models.Model):
         token_ahamove = self.env['ir.config_parameter'].sudo().get_param('ahamove_api_token',
                                                                          default=DEFAULT_TOKEN)
         sending_from = order.warehouse_id.partner_id
-        path = [
-            {
-                'address': '%s, %s' % (sending_from.street, sending_from.city)
-            },
-            {
-                'address': '%s, %s' % (order.partner_id.street, order.partner_id.city),
-                'name': order.partner_id.name,
-                'mobile': order.partner_id.mobile
-            }
-        ]
+        path = '[{"address": "%s, %s"},{"address": "%s, %s", "name": "%s", "mobile": "%s"}]' % (
+            sending_from.street, sending_from.city, order.partner_id.street,
+            order.partner_id.city, order.partner_id.name, order.partner_id.mobile)
+        _logger.debug("Path: %s", path)
         return {
             'token': token_ahamove,
             'order_time': 0,
-            'path': json.dumps(path),
+            'path': path,
             'service_id': self.service_type.code,
             'requests': [],
             'payment_method': 'CASH',
@@ -115,10 +103,12 @@ class Ahamove(models.Model):
             }
         except requests.HTTPError:
             response = res.json()
-            description = response['description']
-            message = _('The order "%s" cannot be estimated because of the following error: %s') % (
-                order.name, description
-            )
+            if 'description' in response.keys():
+                message = _('The order "%s" cannot be estimated because of the following error: %s') \
+                      % (order.name, response['description'])
+            else:
+                message = _('The order "%s" cannot be estimated because of the following error: %s') \
+                          % (order.name, response['title'])
             raise UserError(message)
 
     def ahamove_send_shipping(self, pickings):
@@ -144,9 +134,14 @@ class Ahamove(models.Model):
             except requests.HTTPError:
                 response = res.json()
                 description = response['description']
-                message = _('The shipment %s cannot be created because of the following error: '
+                if description:
+                    message = _('The shipment %s cannot be created because of the following error: '
                             '%s') % (picking.name, description)
+                else:
+                    message = _('The shipment %s cannot be created because of the following error: '
+                                '%s') % (picking.name, response['title'])
                 raise UserError(message)
+
         return result
 
     def ahamove_get_tracking_link(self, picking):
@@ -198,7 +193,11 @@ class Ahamove(models.Model):
                 res.raise_for_status()
             except requests.HTTPError:
                 response = res.json()
-                description = response['description']
-                message = _("Cannot cancel the picking %s due to the following error: %s") % \
-                              (picking.name, description)
+                if response['description']:
+                    message = _("Cannot cancel the picking %s due to the following error: %s") % \
+                              (picking.name, response['description'])
+                else:
+                    message = _('The order "%s" cannot be estimated because of the following error: %s') % (
+                                  picking.name, response['title']
+                              )
                 raise UserError(message)
