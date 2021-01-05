@@ -11,6 +11,7 @@ git clone --branch <version> https://github.com/linhhonblade/delivery_ahamove
 
 On your Odoo instance, go to `Apps` and `Update the App List`
 
+
 ![Update App List](static/img/installation/update_app_list.png)
 
 Search for module `delivery_ahamove` and install it
@@ -20,18 +21,24 @@ Search for module `delivery_ahamove` and install it
 Follow the guide from [Ahamove Partner Integration](https://developers.ahamove.com/#overview) to 
 get your token. The ahamove token will be saved in Inventory > Settings
 
+
 ![Save Ahamove Token](static/img/installation/save_token.png)
+
 
 Reminds that if your token is for production api, you have to switch the delivery method to 
 production too (edit in delivery method form)
 
+
 ![Switch to production api](static/img/installation/switch_to_prod.png)
+
 
 ## TODO
 
 ### Functionality
 
+
 - [x] Production and Staging url
+
   
 Handle Exception:
 
