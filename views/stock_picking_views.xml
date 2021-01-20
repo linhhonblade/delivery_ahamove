@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_picking_withcarrier_out_form" model="ir.ui.view">
+            <field name="name">delivery_ahamove.stock.picking_withcarrier.form.view</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="delivery.view_picking_withcarrier_out_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='carrier_data']/div[@name='tracking']"
+                       position="after">
+                    <field name="shipping_status"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

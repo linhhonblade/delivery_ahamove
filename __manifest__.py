@@ -32,6 +32,7 @@
         'views/res_config_settings_views.xml',
         'views/delivery_carrier_views.xml',
         'views/service_type_views.xml',
+        'views/stock_picking_views.xml',
         'data/service_type_data.xml',
     ],
     # only loaded in demonstration mode
