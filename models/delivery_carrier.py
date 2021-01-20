@@ -117,7 +117,8 @@ class Ahamove(models.Model):
         :param pickings: A recordset of pickings
         :return list: A list of dictionaries (one per picking) containing of the form:
             {'exact_price': price,
-             'tracking_number': number}
+             'tracking_number': number,
+             'status': string}
         """
         uri = 'v1/order/create'
         headers = {'Accept': '*/*', 'Cache-Control': 'no-cache'}
@@ -130,7 +131,8 @@ class Ahamove(models.Model):
                 _logger.debug("Response: %s", res.text)
                 res.raise_for_status()
                 result.append({'exact_price': res.json()['order']['total_pay'],
-                               'tracking_number': res.json()['order_id']})
+                               'tracking_number': res.json()['order_id'],
+                               'status': res.json()['status']})
             except requests.HTTPError:
                 response = res.json()
                 description = response['description']
@@ -201,3 +203,5 @@ class Ahamove(models.Model):
                                   picking.name, response['title']
                               )
                 raise UserError(message)
+
+
