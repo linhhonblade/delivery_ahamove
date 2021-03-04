@@ -10,8 +10,8 @@ class TestDeliveryAPI(TestDeliveryCost):
 
     def setUp(self):
         super(TestDeliveryAPI, self).setUp()
-        self.partner_misa = self.env.ref('delivery_ahamove.res_partner_misa')
-        self.ahamove_delivery = self.env.ref('delivery_ahamove.ahamove_sieu_toc')
+        self.partner_misa = self.env.ref('delivery_ahamove.res_partner_misa_sg')
+        self.ahamove_delivery = self.env.ref('delivery_ahamove.ahamove_sieu_toc_sg')
 
         # the tests hereunder assume all the price and address in VND,
         self.env.cr.execute(
