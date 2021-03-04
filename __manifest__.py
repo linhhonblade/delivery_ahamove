@@ -22,7 +22,7 @@
     'version': '13.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['delivery', 'delivery_vn'],
+    'depends': ['delivery', 'delivery_vn', 'base_geolocalize'],
 
     # always loaded
     'data': [
