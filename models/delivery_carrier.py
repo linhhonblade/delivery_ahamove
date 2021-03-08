@@ -14,7 +14,10 @@ class Ahamove(models.Model):
     _description = "Ahamove Shipping Method"
     _inherit = 'delivery.carrier'
 
-    delivery_type = fields.Selection(selection_add=[('ahamove', 'Ahamove')])
+    delivery_type = fields.Selection(selection_add=[('ahamove', 'Ahamove')],
+                                     ondelete={'ahamove': lambda records: record.write({
+                                         'delivery_type': 'fixed'
+                                     })})
     service_type = fields.Many2one('delivery_ahamove.service_type')
 
     def _generate_data_from_order(self, order):
