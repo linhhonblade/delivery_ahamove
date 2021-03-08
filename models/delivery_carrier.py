@@ -19,7 +19,6 @@ class Ahamove(models.Model):
                                          'delivery_type': 'fixed'
                                      })})
     service_type = fields.Many2one('delivery_ahamove.service_type')
-
     def _generate_data_from_order(self, order):
         sending_from = order.warehouse_id.partner_id
         path = '[{"address": "%s, %s"},{"address": "%s, %s", "name": "%s", "mobile": "%s"}]' % (
