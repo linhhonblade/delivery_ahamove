@@ -21,9 +21,16 @@ class Ahamove(models.Model):
     service_type = fields.Many2one('delivery_ahamove.service_type')
     def _generate_data_from_order(self, order):
         sending_from = order.warehouse_id.partner_id
-        path = '[{"address": "%s, %s"},{"address": "%s, %s", "name": "%s", "mobile": "%s"}]' % (
-            sending_from.street, sending_from.city, order.partner_id.street,
-            order.partner_id.city, order.partner_id.name, order.partner_id.mobile)
+        path = '[{"address": "%s, %s, %s, %s"},{"address": "%s, %s, %s, %s", "name": "%s", ' \
+               '"mobile": ' \
+               '"%s"}]' % (
+            sending_from.street, sending_from.ward_id.name, sending_from.district_id.name,
+            sending_from.state_id.name,
+            order.partner_id.street,
+            order.partner_id.ward_id.name, order.partner_id.district_id.name,
+            order.partner_id.state_id.name,
+            order.partner_id.name,
+        order.partner_id.mobile)
         _logger.debug("Path: %s", path)
         return {
             'order_time': 0,
