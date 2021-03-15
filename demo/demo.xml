@@ -61,7 +61,7 @@
             <field name="name">Ahamove Siêu Tốc SG</field>
             <field name="delivery_type">ahamove</field>
             <field name="service_type" ref="delivery_ahamove.sgn-bike"/>
-            <field name="product_id" ref="delivery.product_product_delivery_normal"/>
+            <field name="product_id" ref="product_product_delivery"/>
             <field eval="[(4, ref('base.vn'))]" name="country_ids"/>
         </record>
 
@@ -69,7 +69,7 @@
             <field name="name">Ahamove Siêu Tốc HN</field>
             <field name="delivery_type">ahamove</field>
             <field name="service_type" ref="delivery_ahamove.han-bike"/>
-            <field name="product_id" ref="delivery.product_product_delivery_normal"/>
+            <field name="product_id" ref="product_product_delivery"/>
             <field eval="[(4, ref('base.vn'))]" name="country_ids"/>
         </record>
 

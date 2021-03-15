@@ -9,7 +9,6 @@ DEFAULT_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhaGEiLCJ0eXAiOi
 
 class AhamoveRequest():
     def __init__(self, prod_environment, is_auth=True, api_token=DEFAULT_TOKEN):
-        self.api_token = api_token
         # Product and Testing url
         self.endurl = 'https://api.ahamove.com/'
         if not prod_environment:

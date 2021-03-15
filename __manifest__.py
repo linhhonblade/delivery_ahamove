@@ -34,6 +34,7 @@
         'views/service_type_views.xml',
         'views/stock_picking_views.xml',
         'data/service_type_data.xml',
+        'data/delivery_data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
