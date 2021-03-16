@@ -47,5 +47,45 @@
             <field file="delivery_ahamove/static/img/icon-Tet.png" name="icon" type="base64"/>
             <field name="description">Save 50% - Delivery within 4h guaranteed</field>
         </record>
+        <record id="han-bike" model="delivery_ahamove.service_type">
+            <field name="name">Ahamove HAN-BIKE</field>
+            <field name="code">HAN-BIKE</field>
+        </record>
+        <record id="han-training" model="delivery_ahamove.service_type">
+            <field name="name">Ahamove HAN-TRAINING</field>
+            <field name="code">HAN-TRAINING</field>
+        </record>
+        <record id="han-flashsales" model="delivery_ahamove.service_type">
+            <field name="name">Ahamove HAN-FLASHSALES</field>
+            <field name="code">HAN-FLASHSALES</field>
+        </record>
+        <record id="han-express" model="delivery_ahamove.service_type">
+            <field name="name">Ahamove HAN-EXPRESS</field>
+            <field name="code">HAN-EXPRESS</field>
+        </record>
+        <record id="han-dg" model="delivery_ahamove.service_type">
+            <field name="name">Ahamove HAN-DG</field>
+            <field name="code">HAN-DG</field>
+        </record>
+        <record id="han-pool" model="delivery_ahamove.service_type">
+            <field name="name">Ahamove HAN-POOL</field>
+            <field name="code">HAN-POOL</field>
+        </record>
+        <record id="han-gg" model="delivery_ahamove.service_type">
+            <field name="name">Ahamove HAN-GG</field>
+            <field name="code">HAN-GG</field>
+        </record>
+        <record id="han-sameday" model="delivery_ahamove.service_type">
+            <field name="name">Ahamove HAN-SAMEDAY</field>
+            <field name="code">HAN-SAMEDAY</field>
+        </record>
+        <record id="han-hub" model="delivery_ahamove.service_type">
+            <field name="name">Ahamove HAN-HUB</field>
+            <field name="code">HAN-HUB</field>
+        </record>
+        <record id="han-goshop" model="delivery_ahamove.service_type">
+            <field name="name">Ahamove HAN-GOSHOP</field>
+            <field name="code">HAN-GOSHOP</field>
+        </record>
     </data>
 </odoo>

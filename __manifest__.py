@@ -22,7 +22,7 @@
     'version': '13.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['delivery'],
+    'depends': ['delivery', 'delivery_vn', 'base_geolocalize'],
 
     # always loaded
     'data': [
@@ -32,7 +32,9 @@
         'views/res_config_settings_views.xml',
         'views/delivery_carrier_views.xml',
         'views/service_type_views.xml',
+        'views/stock_picking_views.xml',
         'data/service_type_data.xml',
+        'data/delivery_data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

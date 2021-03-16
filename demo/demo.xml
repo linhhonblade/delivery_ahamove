@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-        <!--Resource: res.partner-->
-        <record id="res_partner_misa" model="res.partner">
-            <field name="name">Misa Partner</field>
-            <field name="is_company">1</field>
-            <field name="street">Miss Ao Dai Building, 21 Nguyễn Trung Ngạn, Bến Nghé, Quận
-                1</field>
-            <field name="city">Hồ Chí Minh</field>
-            <field name='state_id' model="res.country.state" search="[('code','ilike','SG')]"/>
-            <field name="email">misamisa@example.com</field>
-            <field name="phone">12343242</field>
-            <field name='country_id' ref='base.vn'/>
-        </record>
 
         <!--Delivery Method-->
+        <record id="sgn-bike" model="delivery_ahamove.service_type">
+            <field name="name">Siêu Tốc SG</field>
+            <field name="code">SGN-BIKE</field>
+            <field file="delivery_ahamove/static/img/sp-bike.png" name="icon" type="base64"/>
+            <field name="description">Deliver within an hour</field>
+        </record>
+        <record id="han-bike" model="delivery_ahamove.service_type">
+            <field name="name">Siêu Tốc HN</field>
+            <field name="code">HAN-BIKE</field>
+            <field file="delivery_ahamove/static/img/sp-bike.png" name="icon" type="base64"/>
+            <field name="description">Deliver within an hour</field>
+        </record>
 
-        <record id="ahamove_sieu_toc" model="delivery.carrier">
-            <field name="name">Ahamove Siêu Tốc</field>
+        <record id="ahamove_sieu_toc_sg" model="delivery.carrier">
+            <field name="name">Ahamove Siêu Tốc SG</field>
             <field name="delivery_type">ahamove</field>
             <field name="service_type" ref="delivery_ahamove.sgn-bike"/>
-            <field name="product_id" ref="delivery.product_product_delivery_normal"/>
+            <field name="product_id" ref="product_product_delivery"/>
             <field eval="[(4, ref('base.vn'))]" name="country_ids"/>
         </record>
 
+        <record id="ahamove_sieu_toc_hn" model="delivery.carrier">
+            <field name="name">Ahamove Siêu Tốc HN</field>
+            <field name="delivery_type">ahamove</field>
+            <field name="service_type" ref="delivery_ahamove.han-bike"/>
+            <field name="product_id" ref="product_product_delivery"/>
+            <field eval="[(4, ref('base.vn'))]" name="country_ids"/>
+        </record>
     </data>
 </odoo>

@@ -10,8 +10,8 @@ class TestDeliveryAPI(TestDeliveryCost):
 
     def setUp(self):
         super(TestDeliveryAPI, self).setUp()
-        self.partner_misa = self.env.ref('delivery_ahamove.res_partner_misa')
-        self.ahamove_delivery = self.env.ref('delivery_ahamove.ahamove_sieu_toc')
+        self.partner_misa = self.env.ref('delivery_ahamove.res_partner_misa_sg')
+        self.ahamove_delivery = self.env.ref('delivery_ahamove.ahamove_sieu_toc_sg')
 
         # the tests hereunder assume all the price and address in VND,
         self.env.cr.execute(
@@ -108,10 +108,6 @@ class TestDeliveryAPI(TestDeliveryCost):
         with Form(self.ahamove_delivery) as f:
             f.prod_environment = True
             f.save()
-        # Check if the api url changed to production
-        self.assertEqual(self.ahamove_delivery.AHAMOVE_API_BASE_URL,
-                             'https://api.ahamove.com/',
-                        'Api url not change to production')
 
         # I add delivery cost in Sale order but now should generate UserError
         delivery_wizard = Form(self.env['choose.delivery.carrier'].with_context({
@@ -135,8 +131,5 @@ class TestDeliveryAPI(TestDeliveryCost):
         with Form(self.ahamove_delivery) as f:
             f.prod_environment = False
             f.save()
-        self.assertEqual(self.ahamove_delivery.AHAMOVE_API_BASE_URL,
-                             'https://apistg.ahamove.com/', 'Api url not change to test '
-                                                            'environment')
 
 
