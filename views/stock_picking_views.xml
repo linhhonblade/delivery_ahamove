@@ -8,7 +8,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//group[@name='carrier_data']/div[@name='tracking']"
                        position="after">
-                    <field name="shipping_status"/>
+                    <field name="shipping_status"
+                           attrs="{'invisible':[('delivery_type','!=','ahamove')]}"/>
                 </xpath>
             </field>
         </record>

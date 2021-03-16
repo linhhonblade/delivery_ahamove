@@ -1,49 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-        <!--Resource: res.partner-->
-        <record id="main_partner_sasa" model="res.partner">
-            <field name="name">SASA Company</field>
-            <field name="is_company">1</field>
-            <field name="street">Số 1 Phùng Chí Kiên, Nghĩa Đô, Cầu Giấy</field>
-            <field name="city">Hà Nội</field>
-            <field name='state_id' model="res.country.state" search="[('code','ilike','VN-HN')]"/>
-            <field name="email">sasa@example.com</field>
-            <field name="phone">93243242</field>
-            <field name='country_id' ref='base.vn'/>
-        </record>
-        <record id="res_partner_misa_sg" model="res.partner">
-            <field name="name">Misa Partner SG</field>
-            <field name="is_company">1</field>
-            <field name="street">Miss Ao Dai Building, 21 Nguyễn Trung Ngạn, Bến Nghé, Quận
-                1</field>
-            <field name="city">Hồ Chí Minh</field>
-            <field name='state_id' model="res.country.state" search="[('code','ilike','SG')]"/>
-            <field name="email">misamisa@example.com</field>
-            <field name="phone">12343242</field>
-            <field name='country_id' ref='base.vn'/>
-        </record>
-
-        <record id="res_partner_misa_hn" model="res.partner">
-            <field name="name">Misa Partner HN</field>
-            <field name="is_company">1</field>
-            <field name="street">1, Dương Đình Nghệ, Yên Hòa, Cầu Giấy</field>
-            <field name="city">Hà Nội</field>
-            <field name='state_id' model="res.country.state" search="[('code','ilike','VN-HN')]"/>
-            <field name="email">misakutexinhgai@example.com</field>
-            <field name="phone">12283242</field>
-            <field name='country_id' ref='base.vn'/>
-        </record>
-
-        <!--Resource: res.company-->
-        <record id="main_company_sasa" model="res.company">
-            <field name="name">SASA Company</field>
-            <field name="partner_id" ref="main_partner_sasa"/>
-            <field name="currency_id" ref="base.VND"/>
-        </record>
 
         <!--Delivery Method-->
-
         <record id="sgn-bike" model="delivery_ahamove.service_type">
             <field name="name">Siêu Tốc SG</field>
             <field name="code">SGN-BIKE</field>
@@ -71,11 +30,6 @@
             <field name="service_type" ref="delivery_ahamove.han-bike"/>
             <field name="product_id" ref="product_product_delivery"/>
             <field eval="[(4, ref('base.vn'))]" name="country_ids"/>
-        </record>
-
-        <!--Resource: res.user-->
-        <record id="base.user_admin" model="res.users">
-            <field name="company_ids" eval="[(4, ref('main_company_sasa'))]"/>
         </record>
     </data>
 </odoo>

@@ -5,7 +5,7 @@ from odoo import fields, models
 class StockPicking(models.Model):
     _inherit = 'stock.picking'
 
-    shipping_status = fields.Char('Shipping Order Status', translate=True)
+    shipping_status = fields.Char('Shipping Status', translate=True)
 
     def send_to_shipper(self):
         super(StockPicking, self).send_to_shipper()
